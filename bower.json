@@ -1,0 +1,22 @@
+{
+  "name": "myblog",
+  "description": "anno`s blog",
+  "main": "app.js",
+  "authors": [
+    "zhenglongfan"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "semantic-ui#^2.2.7"
+  }
+}

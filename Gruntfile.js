@@ -18,17 +18,51 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            build: {
-                files: ['routes/*.js', 'public/**/*', 'app.js', 'views/*'],
+            js: {
+                files: [ 'public/js/**' ],
                 tasks: ['uglify'],
-                options: { spawn: false }
+                options: { livereload: true }
+            },
+            ejs: {
+                files: ['views/**'],
+                options: {
+                    livereload: true
+                }
+            }
+        },
+        nodemon: {
+            dev: {
+               options: {
+                   file: 'app.js',
+                   args: [],
+                   ignoreFiles: ['readme', 'node_modules/', '.DS_store'],
+                   wachedExtension: ['js'],
+                   watchedFolder: ['./'],
+                   debug: true,
+                   delayTime: 1,
+                   env: {
+                       PORT: 3000
+                   },
+                   cwd: __dirname
+               }
+            }
+        },
+        concurrent: {
+            tasks: ['nodemon', 'watch'],
+            options: {
+                logConcurrentOutput: true
             }
         }
     })
 
+    // 便于开发不让警告和错误中断任务
+    grunt.option('force', true)
+
     // 使用插件
     grunt.loadNpmTasks('grunt-contrib-uglify')
     grunt.loadNpmTasks('grunt-contrib-watch')
+    grunt.loadNpmTasks('grunt-contrib-nodemon')
+    grunt.loadNpmTasks('grunt-concurrent')
     //注册任务
-    grunt.registerTask('default', ['uglify', 'watch'])
+    grunt.registerTask('default', ['concurrent'])
 }
