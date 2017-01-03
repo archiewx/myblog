@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title><%= title %></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/libs/semantic/dist/semantic.min.css">
-        <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="/libs/wangEditor/dist/css/wangEditor.min.css">
+        <link rel="stylesheet" href="/css/style.css">
         <script src="/libs/jquery/dist/jquery.min.js"></script>
         <script src="/libs/semantic/dist/semantic.min.js"></script>
+        <script src="/libs/wangEditor/dist/js/wangEditor.min.js"></script>
     </head>
     <body>
-    <%- include('components/nav') %>
-    <%- include('components/nav-setting') %>
-    <%- include('components/notification') %>
+    <%- include nav.ejs %>
+    <%- include notification.ejs %>

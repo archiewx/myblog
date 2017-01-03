@@ -7,7 +7,9 @@ let UserModel = require('../models/users')
 let checkNotLogin = require('../middlewares/check').checkNotLogin
 
 router.get('/', checkNotLogin, function(req, res, next) {
-    res.render('signup')
+    res.render('signup', {
+        title: '注册'
+    })
 })
 
 router.post('/', checkNotLogin, function(req, res, next) {

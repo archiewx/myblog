@@ -1,24 +1,207 @@
-/* ---------- 全局样式 ---------- */
-
-body { width: 1100px; height: 100%; margin: 0 auto; padding-top: 40px; }
-a:hover { border-bottom: 3px solid #4fc08d; }
-.button { background-color: #4fc08d !important; color: #fff !important; }
-.avatar { border-radius: 3px; width: 48px; height: 48px; float: right; }
-
-/* ---------- nav ---------- */
-
-.nav { margin-bottom: 20px; color: #999; text-align: center; }
-
-.nav h1 { color: #4fc08d; display: inline-block; margin: 10px 0; }
-
-/* ---------- nav-setting ---------- */
-
-.nav-setting { position: fixed; right: 30px; top: 35px; z-index: 999; }
-.nav-setting .ui.dropdown.button { padding: 10px 10px 0 10px; background-color: #fff !important; }
-.nav-setting .icon.bars { color: #000; font-size: 18px; }
-
-/* ---------- post-content ---------- */
-.post-content h3 a { color: #4fc08d !important; }
-.post-content .tag { font-size: 13px; margin-right: 5px; color: #999; }
-.post-content .tag.right { float: right; margin-right: 0; }
-.post-content .tag.right a { color: #999; }
+* {
+  transition: all .3s;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #000000;
+}
+/**定义渐变色 */
+.overfl {
+  overflow: hidden;
+  zoom: 1;
+}
+.cf {
+  text-align: center;
+}
+.clearfix:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+/**定义数值*/
+/**网站基色 */
+.colora97 {
+  background: #a69e70 !important;
+}
+.color763 {
+  background: #766e3f !important;
+}
+.colorbba {
+  background: #b6b9a3 !important;
+}
+.colorddd {
+  background: #dbdfd9 !important;
+}
+.coloreee {
+  background: #eeefea !important;
+}
+.nav {
+  height: 80px;
+  width: 100%;
+  color: #0f0f0f;
+  position: relative;
+  margin: 0;
+  line-height: 80px;
+  border-bottom: 2px solid #eeefea;
+}
+.nav-container {
+  width: 1024px;
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+  zoom: 1;
+}
+.nav-container .right {
+  float: right;
+}
+.nav-container .left {
+  float: left;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 1000;
+}
+.nav-container .strong1 {
+  color: #b6b9a3;
+  font-size: 30px;
+}
+.nav-container .strong2 {
+  color: #a69e70;
+}
+.nav-container .menu-item {
+  float: right;
+  font-size: 16px;
+  width: 100px;
+  line-height: 80px;
+  text-align: center;
+}
+.nav-container a {
+  display: block;
+}
+.nav-container a:hover {
+  color: #ffffff;
+  background: #b6b9a3;
+}
+.nav-container .active {
+  background: #b6b9a3;
+  color: #ffffff;
+}
+.nav-container .active a {
+  color: #ffffff;
+}
+body {
+  overflow-y: auto;
+}
+.main {
+  width: 100%;
+}
+.wrap {
+  width: 1024px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+/*articles*/
+.menu-list {
+  width: 100%;
+  box-shadow: 0 0 2px 2px #766e3f;
+  -o-box-shadow: 0 0 2px 2px #766e3f;
+  -moz-box-shadow: 0 0 2px 2px #766e3f;
+  -webkit-box-shadow: 0 0 2px 2px #766e3f;
+  padding: 8px 4px;
+  border-radius: 1px;
+}
+.menu-list .list-item {
+  line-height: 32px;
+  border-bottom: 1px solid #766e3f;
+  padding: 4px 2px;
+}
+.menu-list .list-item:last-child {
+  border-bottom: none;
+}
+.menu-list .list-item a {
+  display: block;
+}
+.content-list {
+  width: 100%;
+}
+.content-list .list-item {
+  width: 100%;
+  height: 128px;
+  overflow: hidden;
+  zoom: 1;
+}
+.content-list .item-pic {
+  width: 88px;
+  height: 88px;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid #b6b9a3;
+  border-radius: 88px;
+}
+.content-list .item-left {
+  width: 15%;
+}
+.content-list .item-right {
+  width: 80%;
+}
+.content-list .item-right a {
+  display: block;
+  width: 100%;
+}
+.content-list .header {
+  color: #766e3f;
+  font-size: 20px;
+}
+.content-list .simple-content {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis !important;
+  position: relative;
+  margin: 20px auto 10px auto;
+}
+.content-list .left .item-top > div {
+  float: left;
+}
+.content-list .right .item-top > div {
+  float: right;
+}
+.content-list .item-bottom {
+  overflow: hidden;
+  zoom: 1;
+  border-top: 2px solid #a69e70;
+  margin-top: 15px;
+}
+.content-list .item-bottom .time {
+  float: left;
+}
+.content-list .item-bottom .fn-tool {
+  float: right;
+}
+.content-list .item-bottom .unhide,
+.content-list .item-bottom .outline,
+.content-list .item-bottom .share {
+  color: #766e3f;
+}
+/*article*/

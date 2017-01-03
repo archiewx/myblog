@@ -1,0 +1,235 @@
+/**动画定义 */
+@keyframes next {
+  0% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes next {
+  0% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes next {
+  0% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+* {
+  transition: all .3s;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #000000;
+}
+/**定义渐变色 */
+.overfl {
+  overflow: hidden;
+  zoom: 1;
+}
+.cf {
+  text-align: center;
+}
+.clearfix:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+/**定义数值*/
+/**网站基色 */
+.colora97 {
+  background: #a69e70 !important;
+}
+.color763 {
+  background: #766e3f !important;
+}
+.colorbba {
+  background: #b6b9a3 !important;
+}
+.colorddd {
+  background: #dbdfd9 !important;
+}
+.coloreee {
+  background: #eeefea !important;
+}
+.nav {
+  height: 80px;
+  width: 100%;
+  color: #0f0f0f;
+  position: relative;
+  margin: 0;
+  line-height: 80px;
+  border-bottom: 2px solid #eeefea;
+}
+.nav-container {
+  width: 1024px;
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+  zoom: 1;
+}
+.nav-container .right {
+  float: right;
+}
+.nav-container .left {
+  float: left;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 1000;
+}
+.nav-container .strong1 {
+  color: #b6b9a3;
+  font-size: 30px;
+}
+.nav-container .strong2 {
+  color: #a69e70;
+}
+.nav-container .menu-item {
+  float: right;
+  font-size: 16px;
+  width: 100px;
+  line-height: 80px;
+  text-align: center;
+}
+.nav-container a {
+  display: block;
+}
+.nav-container a:hover {
+  color: #ffffff;
+  background: #b6b9a3;
+}
+.nav-container .active {
+  background: #b6b9a3;
+  color: #ffffff;
+}
+.nav-container .active a {
+  color: #ffffff;
+}
+body {
+  overflow: hidden;
+  zoom: 1;
+  background: #eeefea;
+}
+.bg-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.main {
+  width: 100%;
+}
+.wrap {
+  width: 1024px;
+  height: 400px;
+  position: relative;
+  margin: 0 auto;
+}
+.wrap .container {
+  width: 560px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+.wrap .my-some-info {
+  width: 100%;
+  height: 100%;
+}
+.wrap .my-pic {
+  width: 88px;
+  height: 88px;
+  border-radius: 88px;
+  -moz-border-radius: 88px;
+  -webkit-border-radius: 88px;
+  background-image: url('../img/pic.jpg');
+  background-size: contain;
+  position: relative;
+  margin: 0 auto;
+  border: 2px solid #ffffff;
+}
+.wrap .my-description {
+  background: rgba(255, 255, 255, 0.3);
+}
+.wrap p {
+  text-align: center;
+}
+.footer {
+  width: 100%;
+}
+.footer-wrap {
+  width: 1024px;
+  position: relative;
+  margin: 0 auto;
+}
+.footer-wrap .next {
+  font-size: 50px;
+  width: 100px;
+  height: 100px;
+  color: #766e3f;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  animation: next 1s ease-out 0.1s infinite normal;
+  -moz-animation: next 1s ease-out 0.1s infinite normal;
+  -webkit-animation: next 1s ease-out 0.1s infinite normal;
+  -o-animation: next 1s ease-out 0.1s infinite normal;
+}

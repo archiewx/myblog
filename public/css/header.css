@@ -1,0 +1,111 @@
+* {
+  transition: all .3s;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #000000;
+}
+/**定义渐变色 */
+.overfl {
+  overflow: hidden;
+  zoom: 1;
+}
+.cf {
+  text-align: center;
+}
+.clearfix:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+/**定义数值*/
+/**网站基色 */
+.colora97 {
+  background: #a69e70 !important;
+}
+.color763 {
+  background: #766e3f !important;
+}
+.colorbba {
+  background: #b6b9a3 !important;
+}
+.colorddd {
+  background: #dbdfd9 !important;
+}
+.coloreee {
+  background: #eeefea !important;
+}
+.nav {
+  height: 80px;
+  width: 100%;
+  color: #0f0f0f;
+  position: relative;
+  margin: 0;
+  line-height: 80px;
+  border-bottom: 2px solid #eeefea;
+}
+.nav-container {
+  width: 1024px;
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+  zoom: 1;
+}
+.nav-container .right {
+  float: right;
+}
+.nav-container .left {
+  float: left;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 1000;
+}
+.nav-container .strong1 {
+  color: #b6b9a3;
+  font-size: 30px;
+}
+.nav-container .strong2 {
+  color: #a69e70;
+}
+.nav-container .menu-item {
+  float: right;
+  font-size: 16px;
+  width: 100px;
+  line-height: 80px;
+  text-align: center;
+}
+.nav-container a {
+  display: block;
+}
+.nav-container a:hover {
+  color: #ffffff;
+  background: #b6b9a3;
+}
+.nav-container .active {
+  background: #b6b9a3;
+  color: #ffffff;
+}
+.nav-container .active a {
+  color: #ffffff;
+}

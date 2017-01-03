@@ -1,0 +1,62 @@
+* { transition: all .3s; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+ul, li { list-style: none; list-style-type: none; margin: 0; padding: 0; }
+a { text-decoration: none; color: #000;
+    &:hover { color: #000000; }
+}
+/**定义渐变色 */
+.bgliner(@start:#fff, @middle:#0f0f0f,@end:#000) {
+    background: linear-gradient(top, @start, @middle, @end);
+    background: -o-linear-gradient(top, @start, @middle, @end);
+    background: -webkit-linear-gradient(top, @start, @middle, @end);
+    background: -moz-linear-gradient(top, @start, @middle, @end);
+}
+.br(@r: 5px) {
+    border-radius: @r;
+    -moz-border-radius: @r;
+    -webkit-border-radius: @r;
+}
+.bsh(@x, @y, @xo, @yo, @color) {
+    box-shadow: @x @y @xo @yo @color;
+    -o-box-shadow: @x @y @xo @yo @color;
+    -moz-box-shadow: @x @y @xo @yo @color;
+    -webkit-box-shadow: @x @y @xo @yo @color;
+}
+.overfl { overflow: hidden; zoom: 1; }
+.abs(@top: 0, @right: 0, @bottom: 0, @left: 0) { position: absolute; top: @top; left: @left;
+    bottom: @bottom; right: @right; }
+.rel(@mg:0) { position: relative; margin: @mg; }
+.lh(@h) { line-height: @h; }
+.cf { text-align: center; }
+.clearfix:after { content: ' '; display: block; clear: both; }
+/**定义数值*/
+@nav_heigth: 80px;
+@width100: 100%;
+@heigth100: 100%;
+@nav_color: #0f0f0f;
+@width1024: 1024px;
+@nav_title: 24px;
+@index_main_wrap_height: 400px;
+@pic_width: 88px;
+@item_width: 100px;
+@item_fs: 16px;
+@br: 1px;
+@fmms: '微软雅黑';
+@fmst: '宋体';
+@nlh: 32px;
+@atitlefs: 20px;
+
+/**网站基色 */
+@color763: #766e3f;
+@colora97: #a69e70;
+@colorbba: #b6b9a3;
+@colorddd: #dbdfd9;
+@coloreee: #eeefea;
+@colorfff: #ffffff;
+@color000: #000000;
+.colora97 { background: @colora97 !important; }
+.color763 { background: @color763 !important; }
+.colorbba { background: @colorbba !important; }
+.colorddd { background: @colorddd !important; }
+.coloreee { background: @coloreee !important; }
+

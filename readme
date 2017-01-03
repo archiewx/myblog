@@ -16,7 +16,8 @@
 14. express-winston: 基于 winston 的用于 express 的日志中间件
 
 功能及路由设计如下(符合restful风格)：
-
+主页
+    主页: GET /
 注册
     注册页：GET /signup
     注册（包含上传头像）：POST /signup

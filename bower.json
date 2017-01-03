@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "semantic": "semantic-ui#^2.2.7"
+    "semantic": "semantic-ui#^2.2.7",
+    "wangEditor": "^2.1.22"
   }
 }

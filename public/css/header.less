@@ -1,0 +1,16 @@
+@import './define.less';
+.nav { height: @nav_heigth; width: @width100; color: @nav_color; .rel(0); .lh(@nav_heigth); border-bottom:2px solid @coloreee; }
+.nav-container { width: @width1024; .rel(@mg:0 auto); height: @heigth100; .overfl;
+
+    .right { float: right; }
+    .left { float: left; .lh(@nav_heigth); font-size: @nav_title; font-weight: 1000; }
+    .strong1 { color: @colorbba; font-size: 30px; }
+    .strong2 { color: @colora97; }
+    .menu-item { float: right; font-size: @item_fs; width: @item_width; .lh(@nav_heigth); .cf; }
+    a { display: block;
+        &:hover { color: @colorfff; background: @colorbba; }
+    }
+    .active { background: @colorbba; color: @colorfff;
+        a { color: @colorfff; }
+    }
+}
