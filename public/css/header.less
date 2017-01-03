@@ -3,13 +3,22 @@
 .nav-container { width: @width1024; .rel(@mg:0 auto); height: @heigth100; .overfl;
 
     .right { float: right; }
-    .left { float: left; .lh(@nav_heigth); font-size: @nav_title; font-weight: 1000; }
+    .left { float: left; .lh(@nav_heigth); font-size: @nav_title; font-weight: 900; }
     .strong1 { color: @colorbba; font-size: 30px; }
     .strong2 { color: @colora97; }
     .menu-item { float: right; font-size: @item_fs; width: @item_width; .lh(@nav_heigth); .cf; }
     a { display: block;
         &:hover { color: @colorfff; background: @colorbba; }
     }
+    .user-info {
+        a:hover { color: #000; background: @coloreee; }
+
+        .pic { width: @pic_nav_width; height: @pic_nav_width; background: center;
+            background-size: cover; border-radius: @br; border: 1px solid @colorfff; .rel(@mg: 10px auto 0) }
+        p { font-size: @ss; }
+    }
+
+
     .active { background: @colorbba; color: @colorfff;
         a { color: @colorfff; }
     }

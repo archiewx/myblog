@@ -1,5 +1,5 @@
 $(function() {
-    let editor = new wangEditor('article_content');
-    editor.config.menus = editor_config.menus;
-    editor.create();
+    let weditor = new wangEditor('article_content');
+    weditor.config.menus = editor_config.menus;
+    weditor.create();
 });

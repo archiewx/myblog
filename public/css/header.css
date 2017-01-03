@@ -79,7 +79,7 @@ a:hover {
   float: left;
   line-height: 80px;
   font-size: 24px;
-  font-weight: 1000;
+  font-weight: 900;
 }
 .nav-container .strong1 {
   color: #b6b9a3;
@@ -101,6 +101,23 @@ a:hover {
 .nav-container a:hover {
   color: #ffffff;
   background: #b6b9a3;
+}
+.nav-container .user-info a:hover {
+  color: #000;
+  background: #eeefea;
+}
+.nav-container .user-info .pic {
+  width: 50px;
+  height: 50px;
+  background: center;
+  background-size: cover;
+  border-radius: 1px;
+  border: 1px solid #ffffff;
+  position: relative;
+  margin: 10px auto 0;
+}
+.nav-container .user-info p {
+  font-size: 12px;
 }
 .nav-container .active {
   background: #b6b9a3;

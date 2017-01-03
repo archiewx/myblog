@@ -21,4 +21,4 @@ editor_config = {
         'insertcode',
         'fullscreen'
     ]
-}
+};

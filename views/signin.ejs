@@ -1,20 +1,30 @@
-<%- include components/header.ejs %>
-
-<div class="ui grid">
-    <div class="four wide column"></div>
-    <div class="eight wide column">
-        <form action="" class="ui form segment" method="post">
-            <div class="field required">
-                <label>用户名</label>
-                <input placeholder="用户名" type="text" name="name">
-            </div>
-            <div class="field required">
-                <label>密码</label>
-                <input placeholder="密码" type="password" name="password">
-            </div>
-            <input type="submit" class="ui button fluid" value="登录">
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libs/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/wangEditor/dist/js/wangEditor.min.js"></script>
+</head>
+<body>
+    <div class="ui grid">
+        <div class="four wide column"></div>
+        <div class="eight wide column">
+            <form action="" class="ui form segment" method="post">
+                <div class="field required">
+                    <label>用户名</label>
+                    <input placeholder="用户名" type="text" name="name">
+                </div>
+                <div class="field required">
+                    <label>密码</label>
+                    <input placeholder="密码" type="password" name="password">
+                </div>
+                <input type="submit" class="ui button fluid" value="登录">
+            </form>
+        </div>
     </div>
-</div>
-
-<%- include components/footer.ejs %>
+</body>
+</html>

@@ -19,8 +19,8 @@ module.exports = function(grunt) {
         },
         watch: {
             js: {
-                files: [ 'public/js/**' ],
-                tasks: ['uglify'],
+                files: [ 'public/js/**', 'public/css/**' ],
+                // tasks: ['uglify'],
                 options: { livereload: true }
             },
             ejs: {
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     grunt.option('force', true)
 
     // 使用插件
-    grunt.loadNpmTasks('grunt-contrib-uglify')
+    // grunt.loadNpmTasks('grunt-contrib-uglify')
     grunt.loadNpmTasks('grunt-contrib-watch')
     grunt.loadNpmTasks('grunt-contrib-nodemon')
     grunt.loadNpmTasks('grunt-concurrent')

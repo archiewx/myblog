@@ -3,6 +3,14 @@
         <div class="left">anno<span class="strong1">`s</span> blo<span class="strong2">g</span></div>
         <div class="right">
             <ul>
+                <% if(user) { %>
+                <li class="menu-item user-info">
+                    <a href="javascript:;">
+                        <div class="pic" style="background-image: url(/<% user.avatar %>);"></div>
+                        <p><% user.name %></p>
+                    </a>
+                </li>
+                <% }%>
                 <li class="menu-item"><a href="javascript:;">我啊</a></li>
                 <li class="menu-item"><a href="javascript:;">活着</a></li>
                 <li class="menu-item"><a href="javascript:;">分类</a></li>
