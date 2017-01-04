@@ -36,7 +36,7 @@ app.use(session({
 app.use(flash());
 //表单处理
 app.use(require('express-formidable')({
-    uploadDir: path.join(__dirname, 'public/img'), // 上传文件目录
+    uploadDir: path.join(__dirname, 'public/img/upload'), // 上传文件目录
     keepExtensions: true // 保留后缀
 }));
 

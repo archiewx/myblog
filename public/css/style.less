@@ -3,6 +3,17 @@ body { overflow-y: auto; }
 .main { width: @width100; }
 .wrap { width: @width1024; .rel(@mg: 0 auto); margin-top: 20px; }
 
+/*signin*/
+.logo { text-align: center; padding-top: 50px;
+    .title { font-size: @nav_title; font-weight: 600; padding-bottom: 3px; color: @color2b4;
+        &:hover { border-bottom: 2px solid @color2b4; }
+    }
+    .description { font-size: @ts; color: @colorddd; margin-top: 10px; }
+}
+/*signup*/
+.form input[type=file] { .abs(@top: 0, @left: 0); z-index: 10; display: block; width: 100%; height: 100%;
+    opacity: 0; }
+
 /*articles*/
 .menu-list { width: @width100; .bsh(0, 0, 2px, 2px, @color763);
         padding: 8px 4px; border-radius: @br;

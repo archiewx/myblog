@@ -6,8 +6,8 @@
                 <% if(user) { %>
                 <li class="menu-item user-info">
                     <a href="javascript:;">
-                        <div class="pic" style="background-image: url(/<% user.avatar %>);"></div>
-                        <p><% user.name %></p>
+                        <div class="pic" style="background-image: url(/img/upload/<%= user.avatar %>);"></div>
+                        <p><%= user.name %></p>
                     </a>
                 </li>
                 <% }%>

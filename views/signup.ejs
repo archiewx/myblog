@@ -11,8 +11,12 @@
 </head>
 <body>
     <div class="ui grid">
-        <div class="four wide column"></div>
-        <div class="eight wide column">
+        <div class="five wide column"></div>
+        <div class="six wide column">
+            <div class="logo">
+                <div ><a class="title" href="/"><%= title %></a></div>
+                <div class="description">想你所想，做你想做</div>
+            </div>
             <form class="ui form segment" method="post" enctype="multipart/form-data">
                 <div class="field required">
                     <label>用户名</label>
@@ -20,7 +24,7 @@
                 </div>
                 <div class="field required">
                     <label>邀请码</label>
-                    <input type="text" placeholder="邀请码" name="ourCode">
+                    <input type="text" placeholder="邀请码" name="code">
                 </div>
                 <div class="field required">
                     <label>密码</label>
@@ -31,22 +35,21 @@
                     <input placeholder="重复密码" type="password" name="repassword">
                 </div>
                 <div class="field required">
-                    <label>性别</label>
-                    <select class="ui compact selection dropdown" name="gender">
-                        <option value="m">男</option>
-                        <option value="f">女</option>
-                        <option value="x">保密</option>
-                    </select>
-                </div>
-                <div class="field required">
                     <label>头像</label>
-                    <input type="file" name="avatar">
+                    <div class="ui left action input">
+                        <div class="ui labeled icon button green">
+                            <input type="file" name="avatar" onchange="$('#show_name').val(this.value)">
+                            <i class="file image outline icon"></i>
+                            上传文件
+                        </div>
+                        <input type="text" id="show_name" value="">
+                    </div>
                 </div>
                 <div class="field required">
                     <label>个人简介</label>
                     <textarea name="bio" rows="5" v-model="user.bio"></textarea>
                 </div>
-                <input type="submit" class="ui button fluid" value="注册">
+                <input type="submit" class="ui button fluid green" value="注册">
             </form>
         </div>
     </div>

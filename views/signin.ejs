@@ -11,18 +11,22 @@
 </head>
 <body>
     <div class="ui grid">
-        <div class="four wide column"></div>
-        <div class="eight wide column">
+        <div class="five wide column"></div>
+        <div class="six wide column">
+            <div class="logo">
+                <div ><a class="title" href="/"><%= title %></a></div>
+                <div class="description">想你所想，做你想做</div>
+            </div>
             <form action="" class="ui form segment" method="post">
-                <div class="field required">
+                <div class="field required <% if(error) {%> error <% }%>">
                     <label>用户名</label>
                     <input placeholder="用户名" type="text" name="name">
                 </div>
-                <div class="field required">
+                <div class="field required <%if(error) {%> error <%}%>">
                     <label>密码</label>
                     <input placeholder="密码" type="password" name="password">
                 </div>
-                <input type="submit" class="ui button fluid" value="登录">
+                <input type="submit" class="ui button fluid green" value="登录">
             </form>
         </div>
     </div>
