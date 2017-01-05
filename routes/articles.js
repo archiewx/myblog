@@ -11,14 +11,14 @@ router.get('/', function(req, res, next) {
 
 router.get('/detail/:id', function(req, res, next) {
     res.render('article', {
-        title: '文章名字 |' + config.author
+        title: '文章名字 | ' + config.author
     });
-    next()
+    next();
 });
 
 router.get('/create', function(req, res, next) {
     res.render('create', {
-        title: '创建文章 |' + config.author
+        title: '创建文章 | ' + config.author
     });
     next()
 });

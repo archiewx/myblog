@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
-    "start": "cross-env NODE_ENV=production pm2 start app.js --node-args='--harmony' --name 'myblog'"
+    "start": "cross-env NODE_ENV=production pm2 start app.js --node-args='--harmony' --name 'myblog'",
+    "install": "bower install"
   },
   "author": "anno",
   "license": "ISC",
