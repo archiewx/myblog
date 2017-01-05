@@ -8,6 +8,8 @@ let User = mongolass.model('User', {
     code: { type: 'string' },
     bio: { type: 'string' }
 });
+// 根据用户名找到用户，同事设置了name为唯一索引
+User.index({name: 1}, {unique: true}).exec();
 module.exports = {
     // 注册一个用户
     create: function create(user) {

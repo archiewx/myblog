@@ -6,5 +6,40 @@ let Article = mongolass.model('Article', {
     category: { type: Mongolass.Types.ObjectId },
     content: { type: 'string' }
 })
-exports.Article.index({ author: 1, _id: -1 }).exec();
-exports.module = Article;
+Article.index({ author: 1, _id: -1 }).exec();
+
+module.exports = {
+    // 创建一个篇文章
+    create: function(article) {
+        return Article.create(article).exec();
+    },
+    // 通过id获取文章
+    getArticleById: function(articleId) {
+        return Article
+            .findOne({ _id: articleId })
+            .populate({ path: 'author', module: 'Usre' })
+            .addCreateAt()
+            .exec();
+    },
+    getArticles: function(author) {
+        let query = {};
+        if(author) {
+            query.author = author
+        }
+        return Article
+            .find(query)
+            .populate({ path: 'author', model: 'User' })
+            .sort({ _id: -1 })
+            .addCreateAt()
+            .exec();
+    },
+    updatePostById: function(articleId, author, data) {
+        return Article
+            .update({ author: author, _id: articleId }, { $set: data })
+    },
+    delArticleById: function(articleId, author) {
+        return Article
+            .remove({ author: author, _id: articleId })
+            .exec();
+    }
+}

@@ -1,61 +1,66 @@
 <% include components/header.ejs %>
-    <div class="main">
-        <div class="wrap">
-            <div class="ui grid">
-                <div class="four wide column">
-                    <div class="menu-list ui raised segment">
-                        <a href="javascript:;" class="ui colorbba ribbon label">分类</a>
-                       <div class="list-item">
-                           <a>Javascript</a>
-                           <div class="description">前端一哥</div>
-                       </div>
-                        <div class="list-item">
-                            <a href="">MongoDB</a>
-                            <div class="description">NodeJS+MongDB</div>
-                        </div>
-                        <div class="list-item">
-                            <a href="">Redis</a>
-                            <div class="description">NodeJS+Redis</div>
-                        </div>
-                        <div class="list-item">
-                            <a href="">Python</a>
-                            <div class="description">future language</div>
-                        </div>
+<div class="main">
+    <div class="wrap">
+        <div class="ui grid">
+            <div class="four wide column">
+                <div class="menu-list ui raised segment">
+                    <a href="javascript:;" class="ui colorbba ribbon label">分类</a>
+                    <div class="list-item">
+                        <a>Javascript</a>
+                        <div class="description">前端一哥</div>
+                    </div>
+                    <div class="list-item">
+                        <a href="">MongoDB</a>
+                        <div class="description">NodeJS+MongDB</div>
+                    </div>
+                    <div class="list-item">
+                        <a href="">Redis</a>
+                        <div class="description">NodeJS+Redis</div>
+                    </div>
+                    <div class="list-item">
+                        <a href="">Python</a>
+                        <div class="description">future language</div>
                     </div>
                 </div>
-                <div class="eleven wide column">
-                    <div class="content-list">
-                        <h4 class="ui horizontal header divider">
-                            <i class="bar time icon"></i>2015-02-22
-                        </h4>
-                        <div class="list-item left">
-                            <div class="item-top clearfix">
-                                <div class="item-left">
-                                    <div class="item-pic" style="background-image: url('/img/pic.jpg')"></div>
-                                </div>
-                                <div class="item-right">
-                                    <a href="">
-                                        <div class="header">anno`s</div>
-                                        <div class="simple-content">我的老司机打开的打开的打开的打开的的打开的打开的啊打是发生大大打算打打</div>
-                                    </a>
-                                </div>
+            </div>
+            <div class="eleven wide column">
+                <div class="content-list">
+                    <h4 class="ui horizontal header divider">
+                        <i class="bar time icon"></i>2015-02-22
+                    </h4>
+                    <div class="list-item left">
+                        <% articles.forEach(function(article) { %>
+                        <div class="item-top clearfix">
+                            <div class="item-left">
+                                <a href="/articles/author?author="<%= article.author %>>
+                                    <div class="item-pic"
+                                         style="background-image: url(/img/upload/<%= article.user.avatar %>)"></div>
+                                </a>
                             </div>
-                            <div class="item-bottom">
-                                <div class="time">2016-02-03 02:32:42</div>
-                                <div class="fn-tool">
-                                    <a href="" title="浏览"><i class="icon unhide"></i>(999)</a>
-                                    <a href="" title="评论"><i class="icon comment outline"></i>(999)</a>
-                                    <a href="" title="分享"><i class="icon external share"></i>(999)</a>
-                                </div>
+                            <div class="item-right">
+                                <a href="/articles/detail/<%= article._id %>">
+                                    <div class="header"><%= article.user.name %></div>
+                                    <div class="simple-content"><%= article.content %></div>
+                                </a>
                             </div>
                         </div>
-                        <div class="list-item right">
+                        <div class="item-bottom">
+                            <div class="time"><%= article.create_at %></div>
+                            <div class="fn-tool">
+                                <a href="" title="浏览"><i class="icon unhide"></i>(999)</a>
+                                <a href="" title="评论"><i class="icon comment outline"></i>(999)</a>
+                                <a href="" title="分享"><i class="icon external share"></i>(999)</a>
+                            </div>
+                        </div>
+                        <% }) %>
+                    </div>
+                    <div class="list-item right">
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <% include components/footer.ejs %>
 

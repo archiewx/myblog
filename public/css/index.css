@@ -222,11 +222,11 @@ body {
   height: 100%;
 }
 .wrap .my-pic {
-  width: 88px;
-  height: 88px;
-  border-radius: 88px;
-  -moz-border-radius: 88px;
-  -webkit-border-radius: 88px;
+  width: 68px;
+  height: 68px;
+  border-radius: 68px;
+  -moz-border-radius: 68px;
+  -webkit-border-radius: 68px;
   background-image: url('../img/pic.jpg');
   background-size: contain;
   position: relative;

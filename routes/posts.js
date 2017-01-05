@@ -76,8 +76,8 @@ router.get('/:postId', function(req, res, next) {
             title: post.title,
             post: post,
             comments: comments
-        }).catch(next)
-    })
+        })
+    }).catch(next)
 });
 // 更新一篇文章页
 router.get('/:postId/edit', checkLogin, function(req, res, next) {
