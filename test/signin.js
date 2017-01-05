@@ -3,7 +3,7 @@
 let path = require('path')
 let assert = require('assert')
 let app = require('../app')
-let User = require('../lib/mongo').User
+let User = require('./mongo').User
 let request = require('supertest')
 let sha1 = require('sha1')
 

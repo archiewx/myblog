@@ -1,4 +1,4 @@
-let Post = require('../lib/mongo').Post
+let Post = require('../db/db').Post
 let marked = require('marked')
 // 导入留言模型
 let CommentModel = require('./comments')

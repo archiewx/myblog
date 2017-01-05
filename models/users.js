@@ -1,5 +1,13 @@
-let User = require('../lib/mongo').User
+let mongolass = require('../db/dbconfig');
 
+
+let User = mongolass.model('User', {
+    name: { type: 'string' },
+    password: { type: 'string' },
+    avatar: { type: 'string' },
+    code: { type: 'string' },
+    bio: { type: 'string' }
+});
 module.exports = {
     // 注册一个用户
     create: function create(user) {

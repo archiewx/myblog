@@ -2,7 +2,7 @@ let path = require('path')
 let assert = require('assert')
 let request = require('supertest')
 let app = require('../app')
-let User = require('../lib/mongo').User
+let User = require('./mongo').User
 
 describe('signup', function() {
     describe('POST /signup', function() {

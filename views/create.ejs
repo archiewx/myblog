@@ -4,16 +4,25 @@
     <div class="wrap">
         <div class="ui grid">
             <div class="sixteen wide column">
-                <form class="ui form segment" method="post" action="/posts">
+                <form class="ui form segment" method="post" action="/articles">
                     <div class="field required">
                         <label>标题</label>
                         <input type="text" name="title">
                     </div>
                     <div class="field required">
-                        <label>内容</label>
-                        <textarea style="height: 500px" id="article_content"></textarea>
+                        <label>分类</label>
+                        <select class="ui dropdown" name="category">
+                            <option value="">分类</option>
+                            <option value="Java">Java</option>
+                            <option value="Python">Python</option>
+                            <option value="Python">Python</option>
+                        </select>
                     </div>
-                    <input type="submit" class="ui button" value="发布">
+                    <div class="field required">
+                        <label>内容</label>
+                        <textarea name="content" style="height: 500px" id="article_content"></textarea>
+                    </div>
+                    <input type="submit" class="ui button green fluid" value="发布文章">
                 </form>
             </div>
 
@@ -22,5 +31,4 @@
 </div>
 <script src="/js/editor.config.js"></script>
 <script src="/js/create.js"></script>
-
 <%- include components/footer.ejs %>
