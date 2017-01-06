@@ -19,8 +19,8 @@
                     <h4 class="ui horizontal header divider">
                         <i class="bar time icon"></i>2015-02-22
                     </h4>
+                    <% articles.forEach(function(article) { %>
                     <div class="list-item left">
-                        <% articles.forEach(function(article) { %>
                         <div class="item-top clearfix">
                             <div class="item-left">
                                 <a href="/articles/author/<%= article.author._id %>">
@@ -43,8 +43,8 @@
                                 <a href="" title="分享"><i class="icon external share"></i>(999)</a>
                             </div>
                         </div>
-                        <% }) %>
                     </div>
+                    <% }) %>
                     <div class="list-item right">
 
                     </div>

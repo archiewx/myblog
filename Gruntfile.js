@@ -53,16 +53,16 @@ module.exports = function(grunt) {
                 logConcurrentOutput: true
             }
         }
-    })
+    });
 
     // 便于开发不让警告和错误中断任务
-    grunt.option('force', true)
+    grunt.option('force', true);
 
     // 使用插件
     // grunt.loadNpmTasks('grunt-contrib-uglify')
-    grunt.loadNpmTasks('grunt-contrib-watch')
-    grunt.loadNpmTasks('grunt-contrib-nodemon')
-    grunt.loadNpmTasks('grunt-concurrent')
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-nodemon');
+    grunt.loadNpmTasks('grunt-concurrent');
     //注册任务
     grunt.registerTask('default', ['concurrent'])
-}
+};

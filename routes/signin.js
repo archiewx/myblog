@@ -1,10 +1,10 @@
-let express = require('express');
-let router = express.Router();
-let sha1 = require('sha1');
-let config = require('config-lite');
+var express = require('express');
+var router = express.Router();
+var sha1 = require('sha1');
+var config = require('config-lite');
 
-let UserModel = require('../models/users');
-let checkNotLogin = require('../middlewares/check').checkNotLogin;
+var UserModel = require('../models/users');
+var checkNotLogin = require('../middlewares/check').checkNotLogin;
 
 router.get('/', checkNotLogin, function(req, res, next) {
     res.render('signin', {
@@ -15,8 +15,8 @@ router.get('/', checkNotLogin, function(req, res, next) {
 
 router.post('/', checkNotLogin, function(req, res, next) {
     // 获取提交的参数
-    let name = req.fields.name;
-    let password = req.fields.password;
+    var name = req.fields.name;
+    var password = req.fields.password;
 
     // 登陆验证
     UserModel.getUserByName(name)

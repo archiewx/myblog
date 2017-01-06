@@ -1,14 +1,14 @@
-let express = require('express');
-let router = express.Router();
+var express = require('express');
+var router = express.Router();
 // 导入文章模型
-let PostModel = require('../models/posts');
+var PostModel = require('../models/posts');
 // 导入留言模型
-let CommentModel = require('../models/comments');
+var CommentModel = require('../models/comments');
 
-let checkLogin = require('../middlewares/check').checkLogin;
+var checkLogin = require('../middlewares/check').checkLogin;
 
 router.get('/', function(req, res, next) {
-    let author = req.query.author;
+    var author = req.query.author;
 
     PostModel.getPosts(author)
         .then(function(posts) {
@@ -21,9 +21,9 @@ router.get('/', function(req, res, next) {
 });
 // 发表一篇文章
 router.post('/', checkLogin, function(req, res, next) {
-    let author = req.session.user._id;
-    let title = req.fields.title;
-    let content = req.fields.content;
+    var author = req.session.user._id;
+    var title = req.fields.title;
+    var content = req.fields.content;
 
     // 校验参数
     try{
@@ -37,7 +37,7 @@ router.post('/', checkLogin, function(req, res, next) {
         req.flash('error', e.message);
         return res.redirect('back')
     }
-    let post = {
+    var post = {
         author: author,
         title: title,
         content: content,
@@ -49,7 +49,7 @@ router.post('/', checkLogin, function(req, res, next) {
             post = result.ops[0];
             req.flash('success', '发表成功');
             // 发表成功后跳转到该文章页
-            res.redirect(`/posts/${post._id}`)
+            res.redirect('/posts/' + post._id)
         })
         .catch(next)
 });
@@ -61,14 +61,14 @@ router.get('/create', checkLogin, function(req, res, next) {
 });
 // 单独一篇的文章页
 router.get('/:postId', function(req, res, next) {
-    let postId = req.params.postId;
+    var postId = req.params.postId;
     Promise.all([
         PostModel.getPostById(postId), // 获取文章信息
         CommentModel.getComments(postId),
         PostModel.incPv(postId) // pv 增加 1
     ]).then(function(result) {
-        let post = result[0];
-        let comments = result[1];
+        var post = result[0];
+        var comments = result[1];
         if(!post) {
             throw new Error('该文章不存在')
         }
@@ -81,8 +81,8 @@ router.get('/:postId', function(req, res, next) {
 });
 // 更新一篇文章页
 router.get('/:postId/edit', checkLogin, function(req, res, next) {
-    let postId = req.params.postId;
-    let author = req.session.user._id;
+    var postId = req.params.postId;
+    var author = req.session.user._id;
 
     PostModel
         .getRawPostById(postId)
@@ -100,10 +100,10 @@ router.get('/:postId/edit', checkLogin, function(req, res, next) {
 });
 // 更新一篇文章
 router.post('/:postId/edit', checkLogin, function(req, res, next) {
-    let postId = req.params.postId;
-    let author = req.session.user._id;
-    let title = req.fields.title;
-    let content = req.fields.content;
+    var postId = req.params.postId;
+    var author = req.session.user._id;
+    var title = req.fields.title;
+    var content = req.fields.content;
 
     PostModel
         .updatePostById(postId, author, {
@@ -113,14 +113,14 @@ router.post('/:postId/edit', checkLogin, function(req, res, next) {
         .then(function() {
             req.flash('success', '编辑文章成功');
             // 编辑成功后跳转到上一页
-            res.redirect(`/posts/${postId}`)
+            res.redirect('/posts/' + postId)
         })
-        .catch(next)
+        .catch(next);
 });
 // 删除一篇文章
 router.get('/:postId/remove', checkLogin, function(req, res, next) {
-    let postId = req.params.postId;
-    let author = req.session.user._id;
+    var postId = req.params.postId;
+    var author = req.session.user._id;
 
     PostModel
         .delPostById(postId, author)
@@ -134,10 +134,10 @@ router.get('/:postId/remove', checkLogin, function(req, res, next) {
 });
 // 创建一条留言
 router.post('/:postId/comment', checkLogin, function(req, res, next) {
-    let author = req.session.user._id;
-    let postId = req.params.postId;
-    let content = req.fields.content;
-    let comment = {
+    var author = req.session.user._id;
+    var postId = req.params.postId;
+    var content = req.fields.content;
+    var comment = {
         author: author,
         postId: postId,
         content: content
@@ -152,8 +152,8 @@ router.post('/:postId/comment', checkLogin, function(req, res, next) {
         .catch(next)
 });
 router.get('/:postId/comment/:commentId/remove', checkLogin, function(req, res, next) {
-    let commentId = req.params.comments;
-    let author = req.session.user._id;
+    var commentId = req.params.comments;
+    var author = req.session.user._id;
 
     CommentModel
         .delCommentById(commentId, author)

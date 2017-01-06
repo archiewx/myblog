@@ -69,7 +69,7 @@ router.get('/detail/:id', function (req, res, next) {
                 throw new Error('文章不存在');
             }
             res.render('article', {
-                title: '文章名字 | ' + config.author,
+                title: article.title + ' | ' + config.author,
                 article: article
             });
         }).catch(next);

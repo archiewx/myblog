@@ -1,17 +1,16 @@
-'use strict';
-let path = require('path');
-let express = require('express');
-let session = require('express-session');
-let MongoStore = require('connect-mongo')(session);
-let flash = require('connect-flash');
-let config = require('config-lite');
-let routes = require('./routes');
-let pkg = require('./package');
+var path = require('path');
+var express = require('express');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var flash = require('connect-flash');
+var config = require('config-lite');
+var routes = require('./routes');
+var pkg = require('./package');
 // 导入日志模块
-let winston =require('winston');
-let expressWinston = require('express-winston');
+var winston =require('winston');
+var expressWinston = require('express-winston');
 
-let app = express();
+var app = express();
 
 // 设置模板目录
 app.set('views', path.join(__dirname, 'views'));
@@ -91,6 +90,6 @@ if(module.parent) {
     module.exports = app
 } else {
     app.listen(port, function() {
-        console.log(`${pkg.name} listening on port ${config.port}`)
+        console.log(pkg.name + 'listening on port' + config.port);
     })
 }

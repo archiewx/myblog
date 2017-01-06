@@ -1,6 +1,6 @@
-let mongolass = require('../db/dbconfig')
+var mongolass = require('../db/dbconfig')
 
-let Category = mongolass.model('Category', {
+var Category = mongolass.model('Category', {
     name: { type: 'string' }
 })
 Category.index({ name: 1, _id: -1 }).exec();
