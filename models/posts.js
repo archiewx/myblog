@@ -1,7 +1,7 @@
-let Post = require('../db/db').Post
-let marked = require('marked')
+var Post = require('../db/db').Post;
+var marked = require('marked');
 // 导入留言模型
-let CommentModel = require('./comments')
+var CommentModel = require('./comments');
 
 module.exports = {
     // 创建一篇文章
@@ -19,7 +19,7 @@ module.exports = {
             .exec()
     },
     getPosts: function getPosts(author){
-        let query = {}
+        var query = {};
         if(author) {
             query.author = author
         }
@@ -58,14 +58,14 @@ module.exports = {
                 }
             })
     }
-}
+};
 
 
 // 将post 的content 从markdown 转换成html
 Post.plugin('contentToHtml', {
     afterFind: function(posts) {
         return posts.map(function(post) {
-            post.content = marked(post.content)
+            post.content = marked(post.content);
             return post
         })
     },
@@ -75,7 +75,7 @@ Post.plugin('contentToHtml', {
         }
         return post
     }
-})
+});
 
 Post.plugin('addCommentsCount', {
     afterFind: function(posts) {
@@ -83,7 +83,7 @@ Post.plugin('addCommentsCount', {
             return CommentModel
                 .getCommentsCount(post._id)
                 .then(function(commentsCount) {
-                    post.commentsCount = commentsCount
+                    post.commentsCount = commentsCount;
                     return post
                 })
         }))
@@ -93,10 +93,10 @@ Post.plugin('addCommentsCount', {
             return CommentModel
                 .getCommentsCount(post._id)
                 .then(function(count) {
-                    post.commentsCount = count
+                    post.commentsCount = count;
                     return post
                 })
         }
         return post
     }
-})
+});

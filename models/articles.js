@@ -1,6 +1,6 @@
-let Mongolass = require('mongolass');
-let mongolass = require('../db/dbconfig');
-let Article = mongolass.model('Article', {
+var Mongolass = require('mongolass');
+var mongolass = require('../db/dbconfig');
+var Article = mongolass.model('Article', {
     author: { type: Mongolass.Types.ObjectId },
     title: { type: 'string' },
     category: { type: Mongolass.Types.ObjectId },
@@ -26,7 +26,7 @@ module.exports = {
             .exec();
     },
     getArticles: function(author) {
-        let query = {};
+        var query = {};
         if(author) {
             query.author = author
         }
@@ -47,4 +47,4 @@ module.exports = {
             .remove({ author: author, _id: articleId })
             .exec();
     }
-}
+};

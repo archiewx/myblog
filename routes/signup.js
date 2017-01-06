@@ -1,11 +1,11 @@
-let path = require('path');
+var path = require('path');
 var sha1 = require('sha1');
-let express = require('express');
-let config = require('config-lite');
-let router = express.Router();
+var express = require('express');
+var config = require('config-lite');
+var router = express.Router();
 
-let UserModel = require('../models/users');
-let checkNotLogin = require('../middlewares/check').checkNotLogin;
+var UserModel = require('../models/users');
+var checkNotLogin = require('../middlewares/check').checkNotLogin;
 
 router.get('/', checkNotLogin, function(req, res, next) {
     res.render('signup', {
@@ -14,12 +14,12 @@ router.get('/', checkNotLogin, function(req, res, next) {
 });
 
 router.post('/', checkNotLogin, function(req, res, next) {
-    let name = req.fields.name;
-    let bio = req.fields.bio;
-    let avatar = req.files.avatar.path.split(path.sep).pop();
-    let password = req.fields.password;
-    let repassword = req.fields.repassword;
-    let code = req.fields.code;
+    var name = req.fields.name;
+    var bio = req.fields.bio;
+    var avatar = req.files.avatar.path.split(path.sep).pop();
+    var password = req.fields.password;
+    var repassword = req.fields.repassword;
+    var code = req.fields.code;
     // 校验参数
     try{
         if (!(name.length >= 1 && name.length <= 10)) {
@@ -49,7 +49,7 @@ router.post('/', checkNotLogin, function(req, res, next) {
     password = sha1(password);
 
     // 组织用户信息保存到数据库
-    let user = {
+    var user = {
         name: name,
         password: password,
         bio: bio,

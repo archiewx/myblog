@@ -7,7 +7,6 @@ let flash = require('connect-flash');
 let config = require('config-lite');
 let routes = require('./routes');
 let pkg = require('./package');
-let NavsModel = require('./models/navs');
 // 导入日志模块
 let winston =require('winston');
 let expressWinston = require('express-winston');
@@ -41,12 +40,6 @@ app.use(require('express-formidable')({
     keepExtensions: true // 保留后缀
 }));
 
-// 菜单全局绑定
-NavsModel
-    .getNavs()
-    .then(function(navs) {
-       app.locals.navs = navs;
-    });
 // 设置模板全局变量
 app.locals.blog = {
     title: pkg.name,
