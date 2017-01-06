@@ -5,15 +5,18 @@ let ArticleModel = require('../models/articles');
 let CategoryModel = require('../models/category');
 
 router.get('/', function (req, res, next) {
-    ArticleModel
-        .getArticles()
-        .then(function (articles) {
-            res.render('articles', {
-                title: '文章列表 | ' + config.author,
-                articles: articles
-            });
-        })
-        .catch(next)
+    Promise.all([
+        ArticleModel.getArticles(),
+        CategoryModel.getCategories()
+    ]).then(function (results) {
+        let articles = results[0];
+        let categories = results[1];
+        res.render('articles', {
+            title: '文章列表 | ' + config.author,
+            articles: articles,
+            categories: categories
+        });
+    }).catch(next)
 });
 
 router.post('/', function (req, res, next) {
@@ -21,7 +24,7 @@ router.post('/', function (req, res, next) {
     let title = req.fields.title;
     let category = req.fields.category;
     let content = req.fields.content;
-
+    let description = req.fields.description;
     try {
         if (!title.length) {
             throw new Error('标题为空');
@@ -36,7 +39,8 @@ router.post('/', function (req, res, next) {
             author: author,
             title: title,
             category: category,
-            content: content
+            content: content,
+            description: description
         }
         ArticleModel
             .create(article)
@@ -56,29 +60,45 @@ router.post('/', function (req, res, next) {
 
 router.get('/detail/:id', function (req, res, next) {
     let articleId = req.params.id;
-    Promise.all([
-        ArticleModel.getArticleById(articleId)
-    ]).then(function (result) {
-        let article = result[0];
-        if (!article) {
-            throw new Error('文章不存在');
-        }
-        res.render('article', {
-            title: '文章名字 | ' + config.author,
-            article: article
-        });
-    }).catch(next);
+    console.log(articleId);
+    ArticleModel
+        .getArticleById(articleId)
+        .then(function (result) {
+            let article = result;
+            if (!article) {
+                throw new Error('文章不存在');
+            }
+            res.render('article', {
+                title: '文章名字 | ' + config.author,
+                article: article
+            });
+        }).catch(next);
 });
 
 router.get('/create', function (req, res, next) {
     CategoryModel
         .getCategories()
-        .then(function(categories) {
+        .then(function (categories) {
             res.render('create', {
                 title: '创建文章 | ' + config.author,
                 categories: categories
             });
         }).catch(next);
 });
+router.get('/author/:id', function (req, res, next) {
+    let authorId = req.params.id;
+    Promise.all([
+        ArticleModel.getArticles(authorId),
+        CategoryModel.getCategories()
+    ]).then(function (results) {
+        let articles = results[0];
+        let categories = results[1];
+        res.render('articles', {
+            title: articles[0].author.name + '的文章列表 | ' + config.author,
+            articles: articles,
+            categories: categories
+        });
+    }).catch(next)
+})
 
 module.exports = router;

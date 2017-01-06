@@ -5,22 +5,13 @@
             <div class="four wide column">
                 <div class="menu-list ui raised segment">
                     <a href="javascript:;" class="ui colorbba ribbon label">分类</a>
+                    <% categories.forEach(function(category) {%>
                     <div class="list-item">
-                        <a>Javascript</a>
-                        <div class="description">前端一哥</div>
+                        <a href="/articles/categories/<%= category._id%>"><%= category.name %></a>
+                        <div class="description"><%= category.description %></div>
                     </div>
-                    <div class="list-item">
-                        <a href="">MongoDB</a>
-                        <div class="description">NodeJS+MongDB</div>
-                    </div>
-                    <div class="list-item">
-                        <a href="">Redis</a>
-                        <div class="description">NodeJS+Redis</div>
-                    </div>
-                    <div class="list-item">
-                        <a href="">Python</a>
-                        <div class="description">future language</div>
-                    </div>
+                    <% }) %>
+
                 </div>
             </div>
             <div class="eleven wide column">
@@ -32,15 +23,15 @@
                         <% articles.forEach(function(article) { %>
                         <div class="item-top clearfix">
                             <div class="item-left">
-                                <a href="/articles/author?author="<%= article.author %>>
+                                <a href="/articles/author/<%= article.author._id %>">
                                     <div class="item-pic"
-                                         style="background-image: url(/img/upload/<%= article.user.avatar %>)"></div>
+                                         style="background-image: url(/img/upload/<%= article.author.avatar %>)"></div>
                                 </a>
                             </div>
                             <div class="item-right">
                                 <a href="/articles/detail/<%= article._id %>">
-                                    <div class="header"><%= article.user.name %></div>
-                                    <div class="simple-content"><%= article.content %></div>
+                                    <div class="header"><%= article.author.name %></div>
+                                    <div class="simple-content"><%= article.description %></div>
                                 </a>
                             </div>
                         </div>

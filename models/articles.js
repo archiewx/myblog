@@ -4,7 +4,8 @@ let Article = mongolass.model('Article', {
     author: { type: Mongolass.Types.ObjectId },
     title: { type: 'string' },
     category: { type: Mongolass.Types.ObjectId },
-    content: { type: 'string' }
+    content: { type: 'string' },
+    description: { type: 'string' }
 })
 Article.index({ author: 1, _id: -1 }).exec();
 
@@ -17,7 +18,8 @@ module.exports = {
     getArticleById: function(articleId) {
         return Article
             .findOne({ _id: articleId })
-            .populate({ path: 'author', module: 'Usre' })
+            .populate({ path: 'author', model: 'Usre' })
+            .populate({ path: 'category', model: 'Category'})
             .addCreateAt()
             .exec();
     },
