@@ -1,8 +1,8 @@
 /*** Created by anno on 2016/12/5. */
 // 链接
-let config = require('config-lite');
-let Mongolass = require('mongolass');
-let mongolass = new Mongolass();
+var config = require('config-lite');
+var Mongolass = require('mongolass');
+var mongolass = new Mongolass();
 mongolass.connect(config.mongodb);
 // TODO 等待分离文件
 exports.User = mongolass.model('User', {
@@ -31,8 +31,8 @@ exports.Comment = mongolass.model('Comment', {
 exports.Comment.index({ postId: 1, _id: 1}).exec(); // 通过文章id 获取该文章下的留言，通过留言的时间升序排列
 exports.Comment.index({ author: 1, _id: 1}).exec(); // 通过用户id 和 留言id 删除一个留言
 
-let moment = require('moment');
-let objectIdToTimestamp = require('objectid-to-timestamp');
+var moment = require('moment');
+var objectIdToTimestamp = require('objectid-to-timestamp');
 
 mongolass.plugin('addCreateAt', {
     afterFind: function(results) {

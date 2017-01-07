@@ -1,8 +1,8 @@
-let config = require('config-lite');
-let Mongolass = require('mongolass');
-let mongolass = new Mongolass();
-let moment = require('moment');
-let objectIdToTimestamp = require('objectid-to-timestamp');
+var config = require('config-lite');
+var Mongolass = require('mongolass');
+var mongolass = new Mongolass();
+var moment = require('moment');
+var objectIdToTimestamp = require('objectid-to-timestamp');
 mongolass.connect(config.mongodb);
 
 mongolass.plugin('addCreateAt', {
