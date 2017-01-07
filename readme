@@ -25,17 +25,34 @@
     登录页：GET /signin
     登录：POST /signin
     登出：GET /signout
-查看文章
-    主页：GET /posts
-    个人主页：GET /posts?author=xxx
-    查看一篇文章（包含留言）：GET /posts/:postId
-发表文章
-    发表文章页：GET /posts/create
-    发表文章：POST /posts
-修改文章
-    修改文章页：GET /posts/:postId/edit
-    修改文章：POST /posts/:postId/edit
-    删除文章：GET /posts/:postId/remove
+文章
+    文章列表 GET /articles
+    文章详情 GET /articles/detail/:id
+    发表文章页 GET /articles/create
+    创建文章 POST /articles/create
+    修改文章页 GET /articles/:id/edit
+    修改文章 POST /articles/:id/edit
+    删除文章 GET /articles/:id/delete
+
+分类
+    分类列表 GET /categories
+    创建分类页 GET /categories/create
+    创建分类 POST /categories/create
+    查看分类 GET /categories/:id
+    修改分类页 GET /categories/:id/edit
+    修改分类 POST /categories/:id/edit
+    删除分类 GET /categories/:id/delete
+
+自己
+    查看个人 GET /my
+
+他人
+    文章列表 GET /about/:id
+
+历史
+    历史列表 GET /histry
+    不同历史 GET /history/:id
+
 留言
     创建留言：POST /posts/:postId/comment
     删除留言：GET /posts/:postId/comment/:commentId/remove

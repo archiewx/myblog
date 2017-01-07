@@ -54,7 +54,8 @@ router.post('/', checkNotLogin, function(req, res, next) {
         password: password,
         bio: bio,
         avatar: avatar,
-        code: code
+        code: code,
+        role: 'N'
     };
     UserModel.create(user).then(function(result) {
         // result为插入 数据库后的返回值

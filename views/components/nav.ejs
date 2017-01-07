@@ -1,21 +1,37 @@
 <div class="nav">
     <div class="nav-container">
-        <div class="left">anno<span class="strong1">`s</span> blo<span class="strong2">g</span></div>
+        <a href="/">
+            <div class="left">anno<span class="strong1">`s</span> blo<span class="strong2">g</span></div>
+        </a>
         <div class="right">
             <ul>
                 <% if(user) { %>
                 <li class="menu-item user-info">
-                    <a href="javascript:;">
+                    <a href="/my">
                         <div class="pic" style="background-image: url(/img/upload/<%= user.avatar %>);"></div>
-                        <p><%= user.name %></p>
                     </a>
+                    <div class="options">
+                        <div class="ui float dropdown">
+                            <div class="text">
+                                <p><%= user.name %>
+                                    <span class="role role-<%= user.role.name %>"><%= user.role.name %></span>
+                                </p>
+                            </div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item" href="/articles/create"><i class="write icon"></i>创建文章</a>
+                                <a class="item" href="/signout"><i class="sign out icon"></i> 退出</a>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <% }%>
-                <li class="menu-item"><a href="javascript:;">作者</a></li>
-                <li class="menu-item"><a href="javascript:;">历史</a></li>
-                <li class="menu-item"><a href="javascript:;">分类</a></li>
-                <li class="menu-item"><a href="javascript:;">文章</a></li>
+                <% } %>
+                <% navs.forEach(function(nav){ %>
+                <li class="menu-item nav-item" title="<%= nav.description %>"><a
+                            href="<%= nav.route %>"><%= nav.name %></a></li>
+                <% }) %>
             </ul>
         </div>
     </div>
 </div>
+<script src="/js/common.fn.js"></script>

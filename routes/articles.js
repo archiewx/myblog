@@ -3,6 +3,7 @@ let router = express.Router();
 let config = require('config-lite');
 let ArticleModel = require('../models/articles');
 let CategoryModel = require('../models/category');
+let check = require('../middlewares/check');
 
 router.get('/', function (req, res, next) {
     Promise.all([
@@ -19,7 +20,7 @@ router.get('/', function (req, res, next) {
     }).catch(next)
 });
 
-router.post('/', function (req, res, next) {
+router.post('/create', function (req, res, next) {
     let author = req.session.user._id;
     let title = req.fields.title;
     let category = req.fields.category;
@@ -41,7 +42,7 @@ router.post('/', function (req, res, next) {
             category: category,
             content: content,
             description: description
-        }
+        };
         ArticleModel
             .create(article)
             .then(function (result) {
@@ -52,30 +53,13 @@ router.post('/', function (req, res, next) {
             })
             .catch(next);
     } catch (e) {
-        req.flash('error', e.getMessage());
+        req.flash('error', e.message);
         req.redirect('/article/create');
     }
 
-})
-
-router.get('/detail/:id', function (req, res, next) {
-    let articleId = req.params.id;
-    console.log(articleId);
-    ArticleModel
-        .getArticleById(articleId)
-        .then(function (result) {
-            let article = result;
-            if (!article) {
-                throw new Error('文章不存在');
-            }
-            res.render('article', {
-                title: '文章名字 | ' + config.author,
-                article: article
-            });
-        }).catch(next);
 });
 
-router.get('/create', function (req, res, next) {
+router.get('/create', check.checkLogin, function (req, res, next) {
     CategoryModel
         .getCategories()
         .then(function (categories) {
@@ -99,6 +83,22 @@ router.get('/author/:id', function (req, res, next) {
             categories: categories
         });
     }).catch(next)
-})
+});
+
+router.get('/detail/:id', function (req, res, next) {
+    let articleId = req.params.id;
+    ArticleModel
+        .getArticleById(articleId)
+        .then(function (result) {
+            let article = result;
+            if (!article) {
+                throw new Error('文章不存在');
+            }
+            res.render('article', {
+                title: article.title +' | ' + config.author,
+                article: article
+            });
+        }).catch(next);
+});
 
 module.exports = router;

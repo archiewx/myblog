@@ -6,13 +6,15 @@ let Article = mongolass.model('Article', {
     category: { type: Mongolass.Types.ObjectId },
     content: { type: 'string' },
     description: { type: 'string' }
-})
+});
 Article.index({ author: 1, _id: -1 }).exec();
 
 module.exports = {
     // 创建一个篇文章
     create: function(article) {
-        return Article.create(article).exec();
+        return Article
+            .create(article)
+            .exec();
     },
     // 通过id获取文章
     getArticleById: function(articleId) {
@@ -31,6 +33,7 @@ module.exports = {
         return Article
             .find(query)
             .populate({ path: 'author', model: 'User' })
+            .populate({ path: 'category', model: 'Category' })
             .sort({ _id: -1 })
             .addCreateAt()
             .exec();
