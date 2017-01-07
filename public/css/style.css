@@ -281,6 +281,12 @@ body {
   text-decoration: underline;
   color: #333333;
 }
+.article-header .article-category {
+  padding: 2px 4px;
+  background-color: #a69e70;
+  border-radius: 5px;
+  color: #ffffff;
+}
 .article-body {
   margin-top: 20px;
 }
