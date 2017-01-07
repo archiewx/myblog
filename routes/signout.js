@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var checkLogin = require('../middlewares/check').checkLogin;
+let checkLogin = require('../middlewares/check').checkLogin;
 
 router.get('/', checkLogin, function(req, res, next) {
     // 清空session 中用户信息
