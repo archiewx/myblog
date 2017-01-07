@@ -79,8 +79,6 @@ a:hover {
   position: relative;
   margin: 0 auto;
   height: 100%;
-  overflow: hidden;
-  zoom: 1;
 }
 .nav-container .right {
   float: right;
@@ -104,24 +102,25 @@ a:hover {
   width: 100px;
   line-height: 80px;
   text-align: center;
+  height: 100%;
 }
-.nav-container a {
+.nav-container .nav-item a {
   display: block;
 }
-.nav-container a:hover {
+.nav-container .nav-item a:hover {
   color: #ffffff;
   background: #b6b9a3;
 }
-.nav-container .user-info a:hover {
-  color: #000;
-  background: #eeefea;
+.nav-container .user-info {
+  position: relative;
+  margin: 0;
 }
 .nav-container .user-info .pic {
   width: 50px;
   height: 50px;
   background: center;
   background-size: cover;
-  border-radius: 1px;
+  border-radius: 5px;
   border: 1px solid #ffffff;
   position: relative;
   margin: 10px auto 0;
@@ -129,11 +128,37 @@ a:hover {
 .nav-container .user-info p {
   font-size: 12px;
 }
-.nav-container .active {
+.nav-container .user-info .role {
+  color: #ffffff;
+  background-color: #e5e224;
+  padding: 1px 4px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.nav-container .user-info .role-super {
+  background-color: #e5e224;
+}
+.nav-container .user-info .role-admin {
+  background-color: #b8b278;
+}
+.nav-container .user-info .role-normal {
+  background-color: #21BA45;
+}
+.nav-container .user-info .options {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.nav-container .user-info .options > div {
+  height: 50px;
+}
+.nav-container .nav-active {
   background: #b6b9a3;
   color: #ffffff;
 }
-.nav-container .active a {
+.nav-container .nav-active a {
   color: #ffffff;
 }
 body {
@@ -263,6 +288,13 @@ body {
 .content-list .item-bottom .outline,
 .content-list .item-bottom .share {
   color: #766e3f;
+}
+.category {
+  padding: 1px 4px;
+  background-color: #a69e70;
+  border-radius: 5px;
+  color: #ffffff;
+  vertical-align: middle;
 }
 /*article*/
 .article-header {

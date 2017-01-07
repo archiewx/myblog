@@ -7,7 +7,7 @@
                     <a href="javascript:;" class="ui colorbba ribbon label">分类</a>
                     <% categories.forEach(function(category) {%>
                     <div class="list-item">
-                        <a href="/articles/categories/<%= category._id%>"><%= category.name %></a>
+                        <a href="/categories/<%= category._id%>"><%= category.name %></a>
                         <div class="description"><%= category.description %></div>
                     </div>
                     <% }) %>
@@ -16,14 +16,11 @@
             </div>
             <div class="eleven wide column">
                 <div class="content-list">
-                    <h4 class="ui horizontal header divider">
-                        <i class="bar time icon"></i>2015-02-22
-                    </h4>
                     <% articles.forEach(function(article) { %>
                     <div class="list-item left">
                         <div class="item-top clearfix">
                             <div class="item-left">
-                                <a href="/articles/author/<%= article.author._id %>">
+                                <a href="/about/<%= article.author._id %>">
                                     <div class="item-pic"
                                          style="background-image: url(/img/upload/<%= article.author.avatar %>)"></div>
                                 </a>
@@ -36,7 +33,9 @@
                             </div>
                         </div>
                         <div class="item-bottom">
-                            <div class="time"><%= article.create_at %></div>
+                            <div class="time"><%= article.created_at %> <a href="/categories/<%= article.category._id %>">
+                                    <span class="category"><%= article.category.name %></span>
+                                </a></div>
                             <div class="fn-tool">
                                 <a href="" title="浏览"><i class="icon unhide"></i>(999)</a>
                                 <a href="" title="评论"><i class="icon comment outline"></i>(999)</a>

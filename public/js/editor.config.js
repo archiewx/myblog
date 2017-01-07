@@ -8,6 +8,8 @@ editor_config = {
         'bold',
         'underline',
         'italic',
+        'fontsize',
+        'fontfamily',
         'strikethrough',
         'eraser',
         'forecolor',

@@ -8,6 +8,8 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/libs/semantic/dist/semantic.min.css">
     <link rel="stylesheet" href="/css/index.css">
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/semantic/dist/semantic.min.js"></script>
 </head>
 <body>
     <div class="bg-cover"></div>
@@ -16,7 +18,7 @@
         <div class="wrap">
             <div class="container">
                 <div class="my-some-info">
-                    <div class="my-pic"></div>
+                    <div class="my-pic" style="<% if(user){ %> background-image: url(/img/upload/<%= user.avatar %>) <% } %>;"></div>
                     <div class="my-description ui raised segment">
                         <a class="ui colorbba ribbon label">description</a>
                         <p>我就是我，不一样的烟火!</p>
