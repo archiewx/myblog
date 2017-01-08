@@ -179,6 +179,7 @@ a:hover {
 }
 .nav-container .user-info p {
   font-size: 12px;
+  height: 18px;
 }
 .nav-container .user-info .role {
   color: #ffffff;
@@ -205,6 +206,15 @@ a:hover {
 }
 .nav-container .user-info .options > div {
   height: 50px;
+}
+.nav-container .user-info .user-name {
+  width: 30px;
+  display: inline-block;
+  word-wrap: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  float: left;
 }
 .nav-container .nav-active {
   background: #b6b9a3;
