@@ -17,7 +17,7 @@
     .user-info { .rel();
         //a:hover { color: #000; background-color: inherit; }
 
-        .pic { width: @pic_nav_width; height: @pic_nav_width; background: center;
+        .pic { width: @pic_nav_width; height: @pic_nav_width; background: center; z-index: 10;
             background-size: cover; border-radius: @br5; border: 1px solid @colorfff; .rel(@mg: 10px auto 0) }
         p { font-size: @ss; height: 18px; }
         .role { color: @colorfff; background-color: #e5e224; padding: 1px 4px; font-size: @ss;
@@ -29,7 +29,7 @@
             &>div { height: 50px; }
         }
         .user-name { width: 30px; display: inline-block; word-wrap: normal; white-space: nowrap;
-            overflow: hidden; text-overflow: clip; float: left; }
+            overflow: hidden; text-overflow: ellipsis; float: left; }
     }
 
 

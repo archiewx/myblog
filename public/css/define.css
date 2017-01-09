@@ -65,3 +65,7 @@ a:hover {
 .coloreee {
   background: #eeefea !important;
 }
+/*simple icon define*/
+.icon-node:before {
+  content: "N";
+}

@@ -65,6 +65,10 @@ a:hover {
 .coloreee {
   background: #eeefea !important;
 }
+/*simple icon define*/
+.icon-node:before {
+  content: "N";
+}
 .nav {
   height: 80px;
   width: 100%;
@@ -119,6 +123,7 @@ a:hover {
   width: 50px;
   height: 50px;
   background: center;
+  z-index: 10;
   background-size: cover;
   border-radius: 5px;
   border: 1px solid #ffffff;
@@ -161,7 +166,7 @@ a:hover {
   word-wrap: normal;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: clip;
+  text-overflow: ellipsis;
   float: left;
 }
 .nav-container .nav-active {
