@@ -55,7 +55,7 @@ router.post('/', checkNotLogin, function(req, res, next) {
         bio: bio,
         avatar: avatar,
         code: code,
-        role: 'normal'
+        role: "5871462fa2a674ed4034d120"
     };
     UserModel.create(user).then(function(result) {
         // result为插入 数据库后的返回值
