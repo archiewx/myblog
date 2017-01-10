@@ -5,13 +5,29 @@
             <div class="four wide column">
                 <div class="menu-list ui raised segment">
                     <a href="javascript:;" class="ui colorbba ribbon label">分类</a>
+                    <div class="ui accordion fluid">
                     <% categories.forEach(function(category) {%>
-                    <div class="list-item">
-                        <a href="/categories/<%= category._id%>"><%= category.name %></a>
-                        <div class="description"><%= category.description %></div>
-                    </div>
+                        <div class="list-item">
+                        <% if(category.childsObject.length == 0) {%>
+                        <a class="title" href="/categories/<%= category._id%>"><i class="custome-icon iconfont icon-<%= category.icon %>"></i><%= category.name %></a>
+                        <% } else { %>
+                        <a class="title" href="javascript:;"><i class="custome-icon iconfont icon-<%= category.icon %>"></i><%= category.name %></a>
+                        <div class="content">
+                            <div class="ui list">
+                                <% category.childsObject.forEach(function(child){ %>
+                                <a class="item" href="/categories/<%= category.name %>/<%= child._id %>">
+                                    <div class="content">
+                                        <div class="header"><i class="custome-icon iconfont icon-<%= child.icon %>"></i><%= child.name %></div>
+                                        <div class="description"><%= child.description %></div>
+                                    </div>
+                                </a>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <% } %>
+                        </div>
                     <% }) %>
-
+                    </div>
                 </div>
             </div>
             <div class="eleven wide column">
@@ -23,11 +39,12 @@
                                 <a href="/about/<%= article.author._id %>">
                                     <div class="item-pic"
                                          style="background-image: url(/img/upload/<%= article.author.avatar %>)"></div>
+                                    <span class="item-author" title="<%= article.author.name %>"><%= article.author.name %></span>
                                 </a>
                             </div>
                             <div class="item-right">
                                 <a href="/articles/detail/<%= article._id %>">
-                                    <div class="header"><%= article.author.name %></div>
+                                    <div class="header"><%= article.title %></div>
                                     <div class="simple-content"><%= article.description %></div>
                                 </a>
                             </div>

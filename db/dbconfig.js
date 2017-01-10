@@ -18,6 +18,6 @@ mongolass.plugin('addCreateAt', {
         }
         return result;
     }
-})
+});
 
 module.exports = mongolass;

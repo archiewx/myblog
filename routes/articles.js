@@ -85,21 +85,6 @@ router.get('/create', check.checkLogin, function (req, res, next) {
             });
         }).catch(next);
 });
-router.get('/author/:id', function (req, res, next) {
-    let authorId = req.params.id;
-    Promise.all([
-        ArticleModel.getArticles(authorId),
-        CategoryModel.getCategories()
-    ]).then(function (results) {
-        let articles = results[0];
-        let categories = results[1];
-        res.render('articles', {
-            title: articles[0].author.name + '的文章列表 | ' + config.author,
-            articles: articles,
-            categories: categories
-        });
-    }).catch(next)
-});
 
 router.get('/detail/:id', function (req, res, next) {
     let articleId = req.params.id;

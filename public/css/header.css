@@ -22,8 +22,7 @@ body::-webkit-scrollbar-thumb {
 }
 ul,
 li {
-  list-style: none;
-  list-style-type: none;
+  list-style: none none;
   margin: 0;
   padding: 0;
 }
@@ -64,6 +63,10 @@ a:hover {
 }
 .coloreee {
   background: #eeefea !important;
+}
+/*simple icon define*/
+.icon-node:before {
+  content: "N";
 }
 .nav {
   height: 80px;
@@ -119,6 +122,7 @@ a:hover {
   width: 50px;
   height: 50px;
   background: center;
+  z-index: 10;
   background-size: cover;
   border-radius: 5px;
   border: 1px solid #ffffff;
@@ -127,6 +131,7 @@ a:hover {
 }
 .nav-container .user-info p {
   font-size: 12px;
+  height: 18px;
 }
 .nav-container .user-info .role {
   color: #ffffff;
@@ -153,6 +158,15 @@ a:hover {
 }
 .nav-container .user-info .options > div {
   height: 50px;
+}
+.nav-container .user-info .user-name {
+  width: 30px;
+  display: inline-block;
+  word-wrap: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
 }
 .nav-container .nav-active {
   background: #b6b9a3;

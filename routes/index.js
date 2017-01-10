@@ -9,7 +9,8 @@ module.exports = function(app) {
     app.use('/signout', require('./signout'));
     app.use('/articles', require('./articles'));
     app.use('/categories', require('./categories'));
-    app.use('/about', require('./author'));
+    app.use('/about', require('./about'));
+    app.use('/my', require('./my'));
     app.use(function(req, res) {
         if(!res.headersSent) {
             res.render('404')

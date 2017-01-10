@@ -4,7 +4,9 @@ body::-webkit-scrollbar { width: 5px; background: @colorddd; }
 body::-webkit-scrollbar-button { }
 body::-webkit-scrollbar-thumb { border-radius: 2px; width: 6px; background: @color333; }
 
-ul, li { list-style: none; list-style-type: none; margin: 0; padding: 0; }
+ul, li {
+    list-style: none none;
+    margin: 0; padding: 0; }
 a { text-decoration: none; color: #000;
     &:hover { color: #000000; }
 }
@@ -78,3 +80,6 @@ a { text-decoration: none; color: #000;
 .colorddd { background: @colorddd !important; }
 .coloreee { background: @coloreee !important; }
 
+/*simple icon define*/
+
+.icon-node:before { content: "N"; }

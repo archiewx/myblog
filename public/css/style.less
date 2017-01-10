@@ -22,13 +22,17 @@ body { overflow-y: auto; }
         &:last-child { border-bottom: none; }
         a { display: block; }
     }
+    .custome-icon { margin-right: 3px; color: @colorbb7; }
 }
 /*articles*/
 .content-list { width: @width100;
     .list-item { width: @width100; height: 128px; .overfl; }
     .item-pic { width: @pic_width; height: @pic_width; background-position: center;
         background-size: contain; border: 1px solid @colorbba; border-radius: @br3;  }
-    .item-left { width: 15%; }
+    .item-left { width: 15%;
+        .item-author { width: 80px; text-overflow: ellipsis; overflow: hidden; word-break: normal; white-space: nowrap;
+            display: block; }
+    }
     .item-right { width: 80%;
 
         a { display: block; width: @width100; }
@@ -46,7 +50,7 @@ body { overflow-y: auto; }
             float: right;
         }
     }
-    .item-bottom { .overfl; border-top: 2px solid @colora97; margin-top: 15px;
+    .item-bottom { .overfl; border-top: 2px solid @colora97;
 
         .time { float: left; }
         .fn-tool { float: right; }
