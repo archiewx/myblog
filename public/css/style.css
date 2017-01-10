@@ -175,9 +175,6 @@ a:hover {
 .nav-container .nav-active a {
   color: #ffffff;
 }
-body {
-  overflow-y: auto;
-}
 .main {
   width: 100%;
 }
