@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="field">
                                     <label>角色</label>
-                                    <% if(info.role.name == 'admin' || info.role.name == 'super'){ %>
+                                    <% if(user != null && (user.role.name == 'admin' || user.role.name == 'super')){ %>
                                     <select class="ui dropdown" name="role">
                                         <% roles.forEach(function(role) { %>
                                         <option value="<%= role._id %>" <% if(info.role._id == role._id) { %> selected="selected" <% } %>><%= role.name %></option>
