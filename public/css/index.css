@@ -63,6 +63,15 @@ body {
   margin: 0;
   padding: 0;
 }
+textarea::-webkit-scrollbar {
+  width: 5px;
+  background-color: #eeefea;
+}
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  width: 6px;
+  background-color: #b8b278;
+}
 body::-webkit-scrollbar {
   width: 5px;
   background: #dbdfd9;

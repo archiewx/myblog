@@ -98,6 +98,6 @@ if(module.parent) {
     module.exports = app
 } else {
     app.listen(port, function() {
-        console.log(pkg.name + 'listening on port' + config.port);
+        console.log(pkg.name + ' listening on port ' + config.port);
     })
 }

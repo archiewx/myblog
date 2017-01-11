@@ -11,6 +11,15 @@ body {
   margin: 0;
   padding: 0;
 }
+textarea::-webkit-scrollbar {
+  width: 5px;
+  background-color: #eeefea;
+}
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  width: 6px;
+  background-color: #b8b278;
+}
 body::-webkit-scrollbar {
   width: 5px;
   background: #dbdfd9;
@@ -347,13 +356,23 @@ a:hover {
 .article-footer {
   height: 150px;
 }
-.bg-cover {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  color: #eeefea;
+.my-container {
+  margin-top: 20px;
+}
+.center-divider {
+  margin-top: 20px;
+}
+.my-article-list {
+  margin-top: 20px;
+}
+.my-article-list .header {
+  line-height: 35px;
+}
+.my-article-list .header a {
+  font-weight: 500;
+  font-size: 15px;
+}
+.my-article-list .time {
+  font-size: 12px;
+  line-height: 35px;
 }

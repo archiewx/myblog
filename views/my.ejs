@@ -26,37 +26,54 @@
                                 <h4 class="ui dividing header">个人信息</h4>
                                 <div class="field">
                                     <label>用户名</label>
-                                    <input type="text" name="username" value="anno" readonly="readonly">
+                                    <input type="text" name="username" value="<%= info.name %>">
                                 </div>
                                 <div class="field">
                                     <label>角色</label>
-                                    <select class="ui dropdown" name="role" readonly="readonly">
-                                        <option value="">role</option>
-                                        <option value="">super</option>
-                                        <option value="" selected="selected">admin</option>
-                                        <option value="">normal</option>
+                                    <% if(info.role.name == 'admin' || info.role.name == 'super'){ %>
+                                    <select class="ui dropdown" name="role">
+                                        <% roles.forEach(function(role) { %>
+                                        <option value="<%= role._id %>" <% if(info.role._id == role._id) { %> selected="selected" <% } %>><%= role.name %></option>
+                                        <% }) %>
                                     </select>
+                                    <% }else { %>
+                                    <input type="text" name="role" value="<%= info.role.name %>">
+                                    <% } %>
                                 </div>
                                 <div class="field">
                                     <label>作者简介</label>
-                                    <textarea readonly="readonly">Hello World</textarea>
+                                    <textarea><%= info.bio %></textarea>
                                 </div>
-                                <button class="ui fluid green tiny button">注册</button>
+                                <% if(user != null && user._id == info._id) { %>
+                                <button class="ui fluid green tiny button">修改信息</button>
+                                <% } %>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="one wide column">
-                    <div class="ui vertical divider">
+                <div class="one wide column center-divider">
+                    <div class="ui vertical divider">动态
                     </div>
                 </div>
                 <div class="eight wide column">
-
+                    <div class="my-article-list">
+                        <div class="ui big animated list">
+                            <% articles.forEach(function(article) { %>
+                            <div class="item">
+                                <div class="right floated compact time"><%= article.created_at %></div>
+                                <img class="ui avatar image" src="/img/upload/<%= article.author.avatar %>">
+                                <div class="content">
+                                    <div class="header"><a href="/articles/detail/<%= article._id %>"><%= article.title %></a></div>
+                                </div>
+                            </div>
+                            <% }) %>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
     <script src="/libs/semantic/dist/semantic.min.js"></script>
     <script src="/js/common.fn.js"></script>
 </body>

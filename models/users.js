@@ -13,14 +13,21 @@ let User = mongolass.model('User', {
 User.index({name: 1}, {unique: true}).exec();
 module.exports = {
     // 注册一个用户
-    create: function create(user) {
+    create: function(user) {
         return User.create(user).exec()
     },
-    getUserByName: function getUserByName(name) {
+    getUserByName: function(name) {
         return User
             .findOne({ name: name })
             .populate({ path: 'role', model: 'Roles'})
             .addCreateAt()
-            .exec()
+            .exec();
+    },
+    getUserByUserId: function(userId) {
+        return User
+            .findOne({ _id: userId })
+            .populate({ path: 'role', model: 'Roles'})
+            .addCreateAt()
+            .exec();
     }
 };

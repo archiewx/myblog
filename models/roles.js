@@ -12,7 +12,7 @@ module.exports = {
     getRoles: function() {
         return Roles
             .find()
-            .addCreatedAt()
+            .addCreateAt()
             .exec();
     }
 };
