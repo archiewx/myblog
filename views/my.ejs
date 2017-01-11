@@ -8,6 +8,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/libs/semantic/dist/semantic.min.css">
     <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
     <div class="bg-cover"></div>
@@ -16,11 +17,33 @@
             <div class="ui grid">
                 <div class="six wide column">
                     <div class="my-container">
-                        <div class="my-pic-info">
+                        <div class="my-pic-name">
                             <div class="my-pic"></div>
-                            <div class="my-info"></div>
+                            <div class="my-name"></div>
                         </div>
-
+                        <div class="my-info">
+                            <form class="ui form">
+                                <h4 class="ui dividing header">个人信息</h4>
+                                <div class="field">
+                                    <label>用户名</label>
+                                    <input type="text" name="username" value="anno" readonly="readonly">
+                                </div>
+                                <div class="field">
+                                    <label>角色</label>
+                                    <select class="ui dropdown" name="role" readonly="readonly">
+                                        <option value="">role</option>
+                                        <option value="">super</option>
+                                        <option value="" selected="selected">admin</option>
+                                        <option value="">normal</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>作者简介</label>
+                                    <textarea readonly="readonly">Hello World</textarea>
+                                </div>
+                                <button class="ui fluid green tiny button">注册</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="one wide column">
@@ -33,5 +56,8 @@
             </div>
         </div>
     </div>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/semantic/dist/semantic.min.js"></script>
+    <script src="/js/common.fn.js"></script>
 </body>
 </html>
