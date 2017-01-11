@@ -45,8 +45,9 @@
                                     <textarea><%= info.bio %></textarea>
                                 </div>
                                 <% if(user != null && user._id == info._id) { %>
-                                <button class="ui fluid green tiny button">修改信息</button>
+                                <button class="ui fluid red tiny button">修改信息</button>
                                 <% } %>
+                                <a href="/articles" class="ui fluid green tiny button" style="margin-top: 10px;">返回列表</a>
                             </form>
                         </div>
                     </div>
