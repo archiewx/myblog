@@ -26,7 +26,7 @@ module.exports = {
             .exec();
     },
     getArticles: function(author) {
-        var query = {};
+        let query = {};
         if(author) {
             query.author = author
         }

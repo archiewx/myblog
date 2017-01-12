@@ -354,7 +354,17 @@ a:hover {
   margin-top: 20px;
 }
 .article-footer {
-  height: 150px;
+  margin-bottom: 30px;
+}
+.article-footer .img-container {
+  width: 420px;
+  overflow: hidden;
+  zoom: 1;
+}
+.article-footer .image {
+  float: left !important;
+  width: 200px !important;
+  margin-left: 10px;
 }
 .my-container {
   margin-top: 20px;

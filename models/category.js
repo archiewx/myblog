@@ -43,5 +43,12 @@ module.exports = {
             .addCreateAt()
             .addChilds()
             .exec();
+    },
+    getNullChildsCategories: function() {
+        return Category
+            .find({ childs: [] })
+            .sort({ _id: 1 })
+            .addCreateAt()
+            .exec();
     }
 };
