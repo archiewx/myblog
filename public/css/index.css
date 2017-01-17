@@ -107,6 +107,12 @@ a:hover {
   display: block;
   clear: both;
 }
+.txtof {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
 /**定义数值*/
 /*字体定义*/
 /**网站基色 */
@@ -270,11 +276,11 @@ body {
   height: 100%;
 }
 .wrap .my-pic {
-  width: 68px;
-  height: 68px;
-  border-radius: 68px;
-  -moz-border-radius: 68px;
-  -webkit-border-radius: 68px;
+  width: 58px;
+  height: 58px;
+  border-radius: 58px;
+  -moz-border-radius: 58px;
+  -webkit-border-radius: 58px;
   background-image: url('../img/pic.jpg');
   background-size: contain;
   position: relative;

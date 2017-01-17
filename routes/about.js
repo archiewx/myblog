@@ -6,7 +6,9 @@ let config = require('config-lite');
 
 
 router.get('/', function(req, res, next) {
-
+    res.render('about', {
+        title: 'About | ' + config.author
+    });
 });
 
 router.get('/:id', function(req, res, next) {
