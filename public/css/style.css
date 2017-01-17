@@ -55,6 +55,12 @@ a:hover {
   display: block;
   clear: both;
 }
+.txtof {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
 /**定义数值*/
 /*字体定义*/
 /**网站基色 */
@@ -261,23 +267,24 @@ a:hover {
   zoom: 1;
 }
 .content-list .item-pic {
-  width: 68px;
-  height: 68px;
+  width: 58px;
+  height: 58px;
   background-position: center;
   background-size: contain;
   border: 1px solid #b6b9a3;
   border-radius: 3px;
 }
 .content-list .item-left {
-  width: 15%;
+  width: 10%;
 }
 .content-list .item-left .item-author {
-  width: 80px;
+  width: 58px;
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: normal;
   white-space: nowrap;
   display: block;
+  text-align: center;
 }
 .content-list .item-right {
   width: 80%;
@@ -354,7 +361,17 @@ a:hover {
   margin-top: 20px;
 }
 .article-footer {
-  height: 150px;
+  margin-bottom: 30px;
+}
+.article-footer .img-container {
+  width: 420px;
+  overflow: hidden;
+  zoom: 1;
+}
+.article-footer .image {
+  float: left !important;
+  width: 200px !important;
+  margin-left: 10px;
 }
 .my-container {
   margin-top: 20px;
@@ -375,4 +392,48 @@ a:hover {
 .my-article-list .time {
   font-size: 12px;
   line-height: 35px;
+}
+.friend {
+  display: block;
+  width: 20%;
+  margin-left: 5%;
+  float: left;
+  padding: 8px 4px;
+  box-shadow: 0 0 1px 1px #dbdfd9;
+  -o-box-shadow: 0 0 1px 1px #dbdfd9;
+  -moz-box-shadow: 0 0 1px 1px #dbdfd9;
+  -webkit-box-shadow: 0 0 1px 1px #dbdfd9;
+  border-radius: 1px;
+  height: 100px;
+  background: #b6b9a3;
+  color: #ffffff;
+  margin-top: 20px;
+}
+.friend:hover {
+  color: #ffffff;
+}
+.friend .header {
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
+.friend .body {
+  position: relative;
+  margin: 0;
+  height: 64px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
+.friend i {
+  position: absolute;
+  top: 30px;
+  left: 155px;
+  bottom: 0;
+  right: 0;
+  font-size: 35px;
 }

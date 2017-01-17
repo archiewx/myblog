@@ -28,9 +28,9 @@
     .list-item { width: @width100; height: 128px; .overfl; }
     .item-pic { width: @pic_width; height: @pic_width; background-position: center;
         background-size: contain; border: 1px solid @colorbba; border-radius: @br3;  }
-    .item-left { width: 15%;
-        .item-author { width: 80px; text-overflow: ellipsis; overflow: hidden; word-break: normal; white-space: nowrap;
-            display: block; }
+    .item-left { width: 10%;
+        .item-author { width: @pic_width; text-overflow: ellipsis; overflow: hidden; word-break: normal; white-space: nowrap;
+            display: block; text-align: center; }
     }
     .item-right { width: 80%;
 
@@ -72,7 +72,10 @@
 .article-body { margin-top: 20px;
     // .content { text-indent: 2em; font-size: @afs; line-height: 20px; }
 }
-.article-footer { height: 150px; }
+.article-footer { margin-bottom: 30px;
+    .img-container { width: 420px; .overfl(); }
+    .image { float: left !important; width: 200px !important; margin-left: 10px; }
+}
 
 
 // my
@@ -83,4 +86,17 @@
         a { font-weight: 500; font-size: 15px; }
     }
     .time { font-size: @ss; line-height: 35px; }
+}
+
+//friends
+.friends {  }
+.friend { display: block; width: 20%; margin-left: 5%; float: left; padding: 8px 4px;
+    .bsh(0, 0, 1px, 1px, @colorddd); border-radius: @br; height: 100px; background: @colorbba;
+    color: @colorfff; margin-top: 20px;
+
+    &:hover { color: @colorfff; }
+
+    .header { border-bottom: 1px solid @colorfff; margin-bottom: 5px; .txtof(); }
+    .body { .rel(); height: 64px; .txtof() }
+    i { .abs(@top: 30px, @left: 155px); font-size: 35px; }
 }

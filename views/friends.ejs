@@ -1,0 +1,51 @@
+<% include components/header.ejs %>
+<div class="main">
+    <div class="wrap">
+        <div class="friends">
+            <a class="friend" href="http://blog.kictto.tech">
+                <div class="header"><h4>Kictto</h4></div>
+                <div class="body">live or not live
+                    <i class="iconfont icon-java"></i></div>
+            </a>
+            <a class="friend" href="http://blog.kictto.tech">
+                <div class="header"><h4>Kictto</h4></div>
+                <div class="body">live or not live
+                    <i class="iconfont icon-java"></i></div>
+            </a>
+            <a class="friend" href="http://blog.kictto.tech">
+                <div class="header"><h4>Kictto</h4></div>
+                <div class="body">live or not live
+                    <i class="iconfont icon-java"></i></div>
+            </a>
+            <a class="friend" href="http://blog.kictto.tech">
+                <div class="header"><h4>Kictto</h4></div>
+                <div class="body">live or not live
+                    <i class="iconfont icon-java"></i></div>
+            </a><a class="friend" href="http://blog.kictto.tech">
+                <div class="header"><h4>Kictto</h4></div>
+                <div class="body">live or not live
+                    <i class="iconfont icon-java"></i></div>
+            </a><a class="friend" href="http://blog.kictto.tech">
+                <div class="header"><h4>Kictto</h4></div>
+                <div class="body">live or not live
+                    <i class="iconfont icon-java"></i></div>
+            </a>
+
+
+
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        let anis = ['bounce', 'swing', 'tada', 'wobble', 'jello'];
+        $('.friend').hover(function() {
+            let rand = parseInt(Math.random() * 5);
+            $(this).addClass('animated ' + anis[rand]).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $(this).removeClass('animated ' + anis[rand]);
+            })
+        })
+    })
+
+</script>
+<% include components/footer.ejs %>

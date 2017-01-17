@@ -54,13 +54,12 @@ router.post('/create', function (req, res, next) {
             .catch(next);
     } catch (e) {
         req.flash('error', e.message);
-        req.redirect('/article/create');
+        res.redirect('/articles/create');
     }
-})
+});
 
 router.get('/detail/:id', function (req, res, next) {
     let articleId = req.params.id;
-    console.log(articleId);
     ArticleModel
         .getArticleById(articleId)
         .then(function (result) {
@@ -77,7 +76,7 @@ router.get('/detail/:id', function (req, res, next) {
 
 router.get('/create', check.checkLogin, function (req, res, next) {
     CategoryModel
-        .getCategories()
+        .getNullChildsCategories()
         .then(function (categories) {
             res.render('create', {
                 title: '创建文章 | ' + config.author,

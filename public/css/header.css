@@ -55,6 +55,12 @@ a:hover {
   display: block;
   clear: both;
 }
+.txtof {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
 /**定义数值*/
 /*字体定义*/
 /**网站基色 */
