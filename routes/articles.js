@@ -60,6 +60,7 @@ router.post('/create', function (req, res, next) {
 
 router.get('/detail/:id', function (req, res, next) {
     let articleId = req.params.id;
+    console.log(articleId);
     ArticleModel
         .getArticleById(articleId)
         .then(function (result) {
