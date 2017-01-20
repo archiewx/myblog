@@ -275,16 +275,15 @@ a:hover {
   border-radius: 3px;
 }
 .content-list .item-left {
-  width: 10%;
+  width: 15%;
 }
 .content-list .item-left .item-author {
-  width: 58px;
+  width: 80px;
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: normal;
   white-space: nowrap;
   display: block;
-  text-align: center;
 }
 .content-list .item-right {
   width: 80%;

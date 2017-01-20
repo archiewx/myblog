@@ -4,4 +4,3 @@ coverage
 /.idea/workspace.xml
 .idea/vcs.xml
 .idea/dictionaries/
-config/test.js

@@ -12,6 +12,7 @@ module.exports = function(app) {
     app.use('/about', require('./about'));
     app.use('/my', require('./my'));
     app.use('/friends', require('./myfriend'));
+    app.use('/admin', require('./admin'));
     app.use(function(req, res) {
         if(!res.headersSent) {
             res.render('404')
