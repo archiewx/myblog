@@ -77,7 +77,7 @@ router.get('/detail/:id', function (req, res, next) {
 
 router.get('/create', check.checkLogin, function (req, res, next) {
     CategoryModel
-        .getNullChildsCategories()
+        .getCategories()
         .then(function (categories) {
             res.render('create', {
                 title: '创建文章 | ' + config.author,

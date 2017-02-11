@@ -13,20 +13,6 @@
                     <i class="iconfont icon-<%= category.icon %> cy-icon-list"></i>
                     <%= category.name %>
                 </div>
-                <% if(category.childsObject.length > 0) {%>
-                <div class="content">
-                    <div class="ui selection list">
-                        <% category.childsObject.forEach(function(child) {%>
-                        <div class="item">
-                            <i class="iconfont icon-<%= child.icon %>" cy-icon-list></i>
-                            <div class="content">
-                                <div class="header"><%= child.name %></div>
-                            </div>
-                        </div>
-                        <% }) %>
-                    </div>
-                </div>
-                <% } %>
             <% }) %>
         </div>
     </div>

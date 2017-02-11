@@ -1,7 +1,7 @@
 module.exports = function(app) {
     app.get('/', function(req, res) {
         res.render('index', {
-            title: 'anno`s blog | 来啊，相互伤害啊!'
+            title: 'anno`s blog | 一头小型攻城狮, 请不要害怕哦!'
        })
     });
     app.use('/signup', require('./signup'));

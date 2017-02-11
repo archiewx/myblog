@@ -1,7 +1,7 @@
-var Post = require('../db/db').Post;
-var marked = require('marked');
+let Post = require('../db/db').Post;
+let marked = require('marked');
 // 导入留言模型
-var CommentModel = require('./comments');
+let CommentModel = require('./comments');
 
 module.exports = {
     // 创建一篇文章
@@ -19,7 +19,7 @@ module.exports = {
             .exec()
     },
     getPosts: function getPosts(author){
-        var query = {};
+        let query = {};
         if(author) {
             query.author = author
         }

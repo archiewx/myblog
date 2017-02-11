@@ -8,6 +8,12 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/users', function(req, res, next) {
+    res.render('admin/users', {
+        title: '用户管理 | ' + config.author
+    })
+});
+
 
 
 module.exports = router;

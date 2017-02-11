@@ -1,5 +1,5 @@
-var marked = require('marked')
-var Comment = require('../db/db').Comment
+let marked = require('marked')
+let Comment = require('../db/db').Comment
 
 // 将 comment的 content 从Markdown 转换成 html
 Comment.plugin('contentToHtml', {

@@ -1,6 +1,6 @@
-var Mongolass = require('mongolass');
-var mongolass = require('../db/dbconfig');
-var Article = mongolass.model('Article', {
+let Mongolass = require('mongolass');
+let mongolass = require('../db/dbconfig');
+let Article = mongolass.model('Article', {
     author: { type: Mongolass.Types.ObjectId },
     title: { type: 'string' },
     category: { type: Mongolass.Types.ObjectId },

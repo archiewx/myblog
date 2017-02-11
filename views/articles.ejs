@@ -8,23 +8,7 @@
                     <div class="ui accordion fluid">
                     <% categories.forEach(function(category) {%>
                         <div class="list-item">
-                        <% if(category.childsObject.length == 0) {%>
                         <a class="title" href="/categories/<%= category._id%>"><i class="custome-icon iconfont icon-<%= category.icon %>"></i><%= category.name %></a>
-                        <% } else { %>
-                        <a class="title" href="javascript:;"><i class="custome-icon iconfont icon-<%= category.icon %>"></i><%= category.name %></a>
-                        <div class="content">
-                            <div class="ui list">
-                                <% category.childsObject.forEach(function(child){ %>
-                                <a class="item" href="/categories/<%= category.name %>/<%= child._id %>">
-                                    <div class="content">
-                                        <div class="header"><i class="custome-icon iconfont icon-<%= child.icon %>"></i><%= child.name %></div>
-                                        <div class="description"><%= child.description %></div>
-                                    </div>
-                                </a>
-                                <% }) %>
-                            </div>
-                        </div>
-                        <% } %>
                         </div>
                     <% }) %>
                     </div>
