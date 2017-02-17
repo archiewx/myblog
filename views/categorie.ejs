@@ -1,0 +1,28 @@
+<% include components/header.ejs %>
+<div class="main">
+    <div class="wrap">
+        <div class="input-container">
+            <div class="ui fluid icon input">
+                <input type="text" name="search" placeholder="骚年，来一发呗...">
+                <i class="search icon"></i>
+            </div>
+        </div>
+        <% if(articles.length != 0) { %>
+        <div class="ui divided list">
+            <% articles.forEach(function(article) { %>
+            <div class="item">
+                <i class="iconfont icon-<%= article.category.icon %>"></i>
+                <div class="content">
+                    <a class="header"><%= article.title %></a>
+                    <div class="description"><%= article.description %></div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <p>没有查询结果，尝试输入其他内容进行查询！</p>
+        <% } %>
+    </div>
+</div>
+
+<% include components/footer.ejs %>

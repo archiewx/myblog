@@ -25,10 +25,9 @@ module.exports = {
             .addCreateAt()
             .exec();
     },
-    getArticles: function(author) {
-        let query = {};
-        if(author) {
-            query.author = author
+    getArticles: function(query) {
+        if(!query) {
+            query = {};
         }
         return Article
             .find(query)

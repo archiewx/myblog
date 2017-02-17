@@ -16,7 +16,7 @@ router.get('/:id', function(req, res, next) {
     // 用户点击的作者是否是用户本人
     if(req.session.user == null || (req.session.user._id != authorId && req.session.user != null)) {
         Promise.all([
-            ArticleModel.getArticles(authorId),
+            ArticleModel.getArticles({ author: authorId }),
             UserModel.getUserByUserId(authorId)
         ]).then(function (results) {
             let articles = results[0];

@@ -9,8 +9,4 @@ $(function() {
     });
     $('select.ui.dropdown').dropdown();
 
-    $('.ui.accordion').accordion({
-        duration: 1,
-        exclusive: true,
-    });
 });

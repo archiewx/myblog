@@ -22,7 +22,7 @@
                             <div class="my-name"></div>
                         </div>
                         <div class="my-info">
-                            <form class="ui form">
+                            <form class="ui form" action="/my" method="post">
                                 <h4 class="ui dividing header">个人信息</h4>
                                 <div class="field">
                                     <label>用户名</label>
@@ -31,7 +31,7 @@
                                 <div class="field">
                                     <label>角色</label>
                                     <% if(user != null && (user.role.name == 'admin' || user.role.name == 'super')){ %>
-                                    <select class="ui dropdown" name="role">
+                                    <select disabled class="ui dropdown" name="role">
                                         <% roles.forEach(function(role) { %>
                                         <option value="<%= role._id %>" <% if(info.role._id == role._id) { %> selected="selected" <% } %>><%= role.name %></option>
                                         <% }) %>
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="field">
                                     <label>作者简介</label>
-                                    <textarea><%= info.bio %></textarea>
+                                    <textarea name="bio"><%= info.bio %></textarea>
                                 </div>
                                 <% if(user != null && user._id == info._id) { %>
                                 <button class="ui fluid red tiny button">修改信息</button>

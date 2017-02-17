@@ -29,5 +29,10 @@ module.exports = {
             .populate({ path: 'role', model: 'Roles'})
             .addCreateAt()
             .exec();
+    },
+    updateUserByUserId: function(userId, user) {
+        return User
+            .update({ _id: userId }, {$set: user})
+            .exec();
     }
 };

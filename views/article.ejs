@@ -7,7 +7,7 @@
                 <div class="article">
                     <div class="article-header">
                         <h2><%= article.title %></h2>
-                        <p class="time"><%= article.create_at%> <span class="category"><%= article.category.name %></span></p>
+                        <p class="time"><%= article.create_at %> <span class="category"><%= article.category.name %></span></p>
                         <p>转载地址:<a href="" id="share_url"></a>，请尊重作者的劳苦用心</p>
                     </div>
                     <div class="article-body">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="article-footer">
-                        <h4 class="ui dividing header">这是你唯一捐赠我的方式，捐赠让作者写出更好的东西或者捐赠吐槽</h4>
+                        <h4 class="ui dividing header">这是你唯一捐赠我的方式，捐赠让作者写出更好的东西或者评论吐槽</h4>
                         <div class="fluid row img-container">
                             <img class="ui medium rounded image" src="/img/wx.png">
                             <img class="ui medium rounded image" src="/img/alipy.png">
@@ -27,15 +27,22 @@
                     </div>
                 </div>
                 <div class="comment">
-                    <!-- UY BEGIN -->
-                    <div id="uyan_frame"></div>
+                    <!-- 多说评论框 start -->
+                    <div class="ds-thread" data-thread-key="<%= article._id %>" data-title="<%= article.title %>" data-url=""></div>
+                    <!-- 多说评论框 end -->
+                    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
                     <script type="text/javascript">
-                        let uyan_config = {
-                            du: 'blog.zzcl.tech'
-                        }
+                        var duoshuoQuery = {short_name:"zzcl01"};
+                        (function() {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';ds.async = true;
+                            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0]
+                            || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
                     </script>
-                    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2123254"></script>
-                    <!-- UY END -->
+                    <!-- 多说公共JS代码 end -->
                 </div>
             </div>
         </div>
@@ -44,6 +51,7 @@
 <script>
     $(function() {
         $('#share_url').attr('href', location.href).text(location.href);
+        $('.ds-thread').attr('data-url', location.href);
     })
 </script>
 <% include components/footer.ejs %>

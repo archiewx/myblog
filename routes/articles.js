@@ -26,6 +26,8 @@ router.post('/create', function (req, res, next) {
     let category = req.fields.category;
     let content = req.fields.content;
     let description = req.fields.description;
+    let newCategory = req.fields.newCategory;
+
     try {
         if (!title.length) {
             throw new Error('标题为空');
@@ -36,22 +38,35 @@ router.post('/create', function (req, res, next) {
         if (!content.length) {
             throw new Error('请填写文章内容');
         }
-        let article = {
-            author: author,
-            title: title,
-            category: category,
-            content: content,
-            description: description
-        };
-        ArticleModel
-            .create(article)
-            .then(function (result) {
-                // 此article为插入数据库后的值
-                article = result.ops[0];
-                req.flash('success', '发表成功');
-                res.redirect(`/articles/detail/${ article._id }`);
-            })
-            .catch(next);
+        if (newCategory != null) {
+            // 创建新分类
+            let categoryObject = {
+                name: newCategory,
+                description: '',
+                icon: ''
+            };
+            CategoryModel
+                .create(categoryObject)
+                .then(function (result) {
+                    category = result.ops[0]._id;
+                    let article = {
+                        author: author,
+                        title: title,
+                        category: category,
+                        content: content,
+                        description: description
+                    };
+                    ArticleModel
+                        .create(article)
+                        .then(function (result) {
+                            // 此article为插入数据库后的值
+                            article = result.ops[0];
+                            req.flash('success', '发表成功');
+                            res.redirect(`/articles/detail/${ article._id }`);
+                        })
+                        .catch(next);
+                });
+        }
     } catch (e) {
         req.flash('error', e.message);
         res.redirect('/articles/create');
@@ -82,22 +97,6 @@ router.get('/create', check.checkLogin, function (req, res, next) {
             res.render('create', {
                 title: '创建文章 | ' + config.author,
                 categories: categories
-            });
-        }).catch(next);
-});
-
-router.get('/detail/:id', function (req, res, next) {
-    let articleId = req.params.id;
-    ArticleModel
-        .getArticleById(articleId)
-        .then(function (result) {
-            let article = result;
-            if (!article) {
-                throw new Error('文章不存在');
-            }
-            res.render('article', {
-                title: article.title +' | ' + config.author,
-                article: article
             });
         }).catch(next);
 });

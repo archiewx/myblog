@@ -9,7 +9,7 @@ router.get('/', check.checkLogin, function(req, res, next) {
     let authorId = req.query.author? req.query.author: req.session.user._id;
     Promise.all([
         UserModel.getUserByUserId(authorId),
-        ArticleModel.getArticles(authorId)
+        ArticleModel.getArticles({ author: authorId })
     ]).then(function(results) {
         let info = results[0];
         let articles = results[1];
@@ -35,6 +35,18 @@ router.get('/', check.checkLogin, function(req, res, next) {
     }).catch(next);
 });
 
-
+router.post('/', check.checkLogin, function(req, res, next) {
+    let name = req.fields.username;
+    let bio = req.fields.bio;
+    let userId = req.session.user._id;
+    let update = UserModel.updateUserByUserId(userId, { name, bio});
+    let get = UserModel.getUserByUserId(userId);
+    update.then(function() {
+        get.resolve();
+    });
+    get.then(function(user) {
+        console.log(user);
+    });
+});
 
 module.exports = router;

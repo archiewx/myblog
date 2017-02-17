@@ -15,12 +15,16 @@
                     </div>
                     <div class="field required">
                         <label>分类</label>
-                        <select class="ui dropdown" name="category">
-                            <option value="">分类</option>
-                            <% categories.forEach(function(category) {%>
+                        <select name="category" class="ui fluid search selection dropdown">
+                            <option value="">选择分类(不存在创建否则留空)</option>
+                            <% categories.forEach(function(category) { %>
                             <option value="<%= category._id %>"><%= category.name %></option>
                             <% }) %>
                         </select>
+                    </div>
+                    <div class="field">
+                        <label>创建新分类</label>
+                        <input type="text" name="newCategory">
                     </div>
                     <div class="field required">
                         <label>内容</label>
