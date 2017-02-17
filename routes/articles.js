@@ -38,7 +38,7 @@ router.post('/create', function (req, res, next) {
         if (!content.length) {
             throw new Error('请填写文章内容');
         }
-        if (newCategory != null) {
+        if (newCategory.length != 0) {
             // 创建新分类
             let categoryObject = {
                 name: newCategory,
@@ -66,6 +66,23 @@ router.post('/create', function (req, res, next) {
                         })
                         .catch(next);
                 });
+        } else {
+            let article = {
+                author: author,
+                title: title,
+                category: category,
+                content: content,
+                description: description
+            };
+            ArticleModel
+                .create(article)
+                .then(function (result) {
+                    // 此article为插入数据库后的值
+                    article = result.ops[0];
+                    req.flash('success', '发表成功');
+                    res.redirect(`/articles/detail/${ article._id }`);
+                })
+                .catch(next);
         }
     } catch (e) {
         req.flash('error', e.message);
@@ -75,7 +92,6 @@ router.post('/create', function (req, res, next) {
 
 router.get('/detail/:id', function (req, res, next) {
     let articleId = req.params.id;
-    console.log(articleId);
     ArticleModel
         .getArticleById(articleId)
         .then(function (result) {
