@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/libs/semantic/dist/semantic.min.css">
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/libs/jquery/dist/jquery.min.js"></script>
-    <script src="/libs/semantic/dist/semantic.min.js"></script>
 </head>
 <body>
     <div class="ui grid">
@@ -38,7 +36,7 @@
                     <label>头像</label>
                     <div class="ui left action input">
                         <div class="ui labeled icon button green">
-                            <input type="file" name="avatar" onchange="$('#show_name').val(this.value)">
+                            <input type="file" name="avatar" onchange="document.querySelector('#show_name').value = this.value">
                             <i class="file image outline icon"></i>
                             上传文件
                         </div>

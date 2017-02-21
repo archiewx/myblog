@@ -1,27 +1,27 @@
-let fs = require('fs'),
+const fs = require('fs'),
     path = require('path'),
     sha1 = require('sha1'),
     express = require('express'),
     config = require('config-lite'),
-    router = express.Router();
-
-let UserModel = require('../models/users');
-let checkNotLogin = require('../middlewares/check').checkNotLogin;
+    router = express.Router(),
+    UserModel = require('../models/users'),
+    checkNotLogin = require('../middlewares/check').checkNotLogin;
 
 router.get('/', checkNotLogin, function (req, res, next) {
     res.render('signup', {
         title: '注册 | ' + config.author
-    })
+    });
+    next();
 });
 
 router.post('/', checkNotLogin, function (req, res, next) {
-    console.log(req);
-    let name = req.fields.name;
-    let bio = req.fields.bio;
-    let avatar = req.files.avatar.path.split(path.sep).pop();
-    let password = req.fields.password;
-    let repassword = req.fields.repassword;
-    let code = req.fields.code;
+    let name = req.fields.name,
+        bio = req.fields.bio,
+        avatar = req.files.avatar.path.split(path.sep).pop(),
+        password = req.fields.password,
+        repassword = req.fields.repassword,
+        code = req.fields.code;
+
     // 校验参数
     try {
         if (!(name.length >= 1 && name.length <= 10)) {
