@@ -14,7 +14,7 @@
                         <div class="content">
                             <%- article.content %>
                         </div>
-                        <% if(article.author._id == user._id ){ %>
+                        <% if(user && article.author._id == user._id ){ %>
                         <div class="operates">
                             <a href="/articles/delete?id=<%= article._id %>"><i class="icon trash"></i></a>
                             <a href="/articles/edit/<%= article._id %>"><i class="icon write"></i></a>
