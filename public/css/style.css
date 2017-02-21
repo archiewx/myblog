@@ -359,8 +359,28 @@ a:hover {
 .article-body {
   margin-top: 20px;
 }
+.article-body .content {
+  padding-bottom: 20px;
+}
+.article-body .operates {
+  text-align: right;
+  background-color: #ddd;
+  float: right;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.article-body .operates a:hover {
+  background-color: #333;
+  padding: 2px 4px;
+  color: #fff;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
 .article-footer {
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 .article-footer .img-container {
   width: 420px;

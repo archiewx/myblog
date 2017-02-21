@@ -34,5 +34,18 @@ module.exports = {
         return User
             .update({ _id: userId }, {$set: user})
             .exec();
+    },
+    getUsers: function() {
+        return User
+            .find()
+            .populate({ path: 'role', model: 'Roles'})
+            .addCreateAt()
+            .exec();
+    },
+    removeUser: function(userId) {
+        // fixme 删除用户及用户下的所有文章
+        return User
+            .remove({ _id: userId })
+            .exec();
     }
 };

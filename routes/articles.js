@@ -117,4 +117,56 @@ router.get('/create', check.checkLogin, function (req, res, next) {
         }).catch(next);
 });
 
+router.get('/delete', check.checkLogin, function (req, res, next) {
+    let articleId = req.query.id;
+
+    ArticleModel
+        .delArticleById(articleId)
+        .then(function () {
+            req.flash('success', '删除文章成功');
+
+            res.redirect('/articles');
+        })
+        .catch(next);
+});
+
+router.get('/edit/:id', check.checkLogin, function (req, res, next) {
+    let articleId = req.params.id;
+
+    Promise.all([
+        ArticleModel.getArticleById(articleId),
+        CategoryModel.getCategories()
+    ]).then(function(results) {
+        let article = results[0],
+            categories = results[1];
+
+        res.render('edit', {
+            title: `正在编辑文章(${ article.title }) | ${ config.author }`,
+            article: article,
+            categories: categories
+        });
+    }).catch(next);
+
+});
+
+router.post('/edit', check.checkLogin, function(req, res, next) {
+    let articleId = req.fields.id,
+        title = req.fields.title,
+        description = req.fields.description,
+        categroy = req.fields.categories,
+        content = req.fields.content,
+        article = { title, description, categroy, content };
+
+    //fixme 如果为空的情况，需要先查询，后生成article对象，若为空则使用原来的数据
+
+    ArticleModel
+        .updatePostById(articleId, article)
+        .then(function() {
+            req.flash('success', '修改文章成功');
+            res.redirect(`/articles/detail/${ articleId }`)
+        })
+        .catch(next);
+
+});
+
 module.exports = router;

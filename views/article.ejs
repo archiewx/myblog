@@ -14,6 +14,12 @@
                         <div class="content">
                             <%- article.content %>
                         </div>
+                        <% if(article.author._id == user._id ){ %>
+                        <div class="operates">
+                            <a href="/articles/delete?id=<%= article._id %>"><i class="icon trash"></i></a>
+                            <a href="/articles/edit/<%= article._id %>"><i class="icon write"></i></a>
+                        </div>
+                        <% } %>
                     </div>
                     <div class="article-footer">
                         <h4 class="ui dividing header">这是你唯一捐赠我的方式，捐赠让作者写出更好的东西或者评论吐槽</h4>

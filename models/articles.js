@@ -20,7 +20,7 @@ module.exports = {
     getArticleById: function(articleId) {
         return Article
             .findOne({ _id: articleId })
-            .populate({ path: 'author', model: 'Usre' })
+            .populate({ path: 'author', model: 'User' })
             .populate({ path: 'category', model: 'Category'})
             .addCreateAt()
             .exec();
@@ -37,13 +37,13 @@ module.exports = {
             .addCreateAt()
             .exec();
     },
-    updatePostById: function(articleId, author, data) {
+    updatePostById: function(articleId, data) {
         return Article
-            .update({ author: author, _id: articleId }, { $set: data })
+            .update({ _id: articleId }, { $set: data })
     },
-    delArticleById: function(articleId, author) {
+    delArticleById: function(articleId) {
         return Article
-            .remove({ author: author, _id: articleId })
+            .remove({ _id: articleId })
             .exec();
     }
 };

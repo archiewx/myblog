@@ -70,9 +70,14 @@
         color: @colorfff; }
 }
 .article-body { margin-top: 20px;
-    // .content { text-indent: 2em; font-size: @afs; line-height: 20px; }
+    .content { padding-bottom: 20px; }
+    .operates { text-align: right; background-color: #ddd; float: right;
+        .br(@br3);
+        a:hover { background-color: #333; padding: @pd2 @pd4; color: #fff; .br(@br3); }
+    }
+
 }
-.article-footer { margin-bottom: 30px;
+.article-footer { margin-bottom: 30px; margin-top: 30px;
     .img-container { width: 420px; .overfl(); }
     .image { float: left !important; width: 200px !important; margin-left: 10px; }
 }

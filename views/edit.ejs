@@ -1,28 +1,39 @@
-<%- include components/header.ejs %>
+<% include components/header.ejs %>
 
-<div class="ui grid">
-    <div class="four wide column">
-        <a class="avatar"
-           href="/posts?author=<%= user._id %>"
-           data-title="<%= user.name %> | <%= ({m: '男', f: '女', x: '保密'})[user.gender] %>"
-           data-content="<%= user.bio %>">
-            <img class="avatar" src="/img/<%= user.avatar %>">
-        </a>
-    </div>
+<div class="main">
+    <div class="wrap">
+        <div class="ui grid">
+            <div class="sixteen wide column">
+                <form class="ui form segment" method="post" action="/articles/edit">
+                    <input type="text" hidden name="id" value="<%= article._id %>">
+                    <div class="field required">
+                        <label>标题</label>
+                        <input type="text" name="title" value="<%= article.title %>">
+                    </div>
+                    <div class="field required">
+                        <label>描述</label>
+                        <input type="text" name="description" value="<%= article.description %>">
+                    </div>
+                    <div class="field required">
+                        <label>分类</label>
+                        <select name="category" class="ui fluid search selection dropdown">
+                            <option value="">选择分类(不存在创建否则留空)</option>
+                            <% categories.forEach(function(category) { %>
+                            <option value="<%= category._id %>" <% if(category._id.toString() == article.category._id.toString()){ %> selected="selected" <% } %>><%= category.name %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="field required">
+                        <label>内容</label>
+                        <textarea name="content" style="height: 500px" id="article_content"><%- article.content %></textarea>
+                    </div>
+                    <input type="submit" class="ui button green fluid" value="发布文章">
+                </form>
+            </div>
 
-    <div class="eight wide column">
-        <form class="ui form segment" method="post" action="/posts/<%= post._id %>/edit">
-            <div class="field required">
-                <label>标题</label>
-                <input type="text" name="title" value="<%= post.title %>">
-            </div>
-            <div class="field required">
-                <label>内容</label>
-                <textarea name="content" rows="15"><%= post.content %></textarea>
-            </div>
-            <input type="submit" class="ui button" value="发布">
-        </form>
+        </div>
     </div>
 </div>
-
-<%- include components/footer.ejs %>
+<script src="/js/editor.config.js"></script>
+<script src="/js/create.js"></script>
+<% include components/footer.ejs %>

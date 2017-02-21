@@ -1,4 +1,4 @@
-<%- include components/header.ejs %>
+<% include components/header.ejs %>
 
 <div class="main">
     <div class="wrap">
@@ -24,7 +24,7 @@
                     </div>
                     <div class="field">
                         <label>创建新分类</label>
-                        <input type="text" name="newCategory">
+                        <input type="text" placeholder="如果选择了分类请留空" name="newCategory">
                     </div>
                     <div class="field required">
                         <label>内容</label>
@@ -39,4 +39,4 @@
 </div>
 <script src="/js/editor.config.js"></script>
 <script src="/js/create.js"></script>
-<%- include components/footer.ejs %>
+<% include components/footer.ejs %>

@@ -23,17 +23,29 @@
                         </div>
                         <div class="my-info">
                             <form class="ui form" action="/my" method="post">
+                                <input type="hidden" name="id" value="<%= info._id %>">
                                 <h4 class="ui dividing header">个人信息</h4>
                                 <div class="field">
                                     <label>用户名</label>
                                     <input type="text" name="username" value="<%= info.name %>">
                                 </div>
                                 <div class="field">
+                                    <label>用户图像</label>
+                                    <div class="ui left action input">
+                                        <div class="ui labeled icon button green">
+                                            <input type="file" name="avatar" onchange="$('#show_name').val(this.value)">
+                                            <i class="file image outline icon"></i>
+                                            上传文件
+                                        </div>
+                                        <input type="text" id="show_name" placeholder="更换头像" value="">
+                                    </div>
+                                </div>
+                                <div class="field">
                                     <label>角色</label>
-                                    <% if(user != null && (user.role.name == 'admin' || user.role.name == 'super')){ %>
+                                    <% if(user && (user.role.name == 'admin' || user.role.name == 'super')){ %>
                                     <select disabled class="ui dropdown" name="role">
                                         <% roles.forEach(function(role) { %>
-                                        <option value="<%= role._id %>" <% if(info.role._id == role._id) { %> selected="selected" <% } %>><%= role.name %></option>
+                                        <option value="<%= role._id %>" <% if(info.role._id.toString() == role._id.toString()) { %> selected="selected" <% } %>><%= role.name %></option>
                                         <% }) %>
                                     </select>
                                     <% }else { %>
@@ -44,7 +56,7 @@
                                     <label>作者简介</label>
                                     <textarea name="bio"><%= info.bio %></textarea>
                                 </div>
-                                <% if(user != null && user._id == info._id) { %>
+                                <% if(user && (user._id == info._id)) { %>
                                 <button class="ui fluid red tiny button">修改信息</button>
                                 <% } %>
                                 <a href="/articles" class="ui fluid green tiny button" style="margin-top: 10px;">返回列表</a>

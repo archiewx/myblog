@@ -41,6 +41,10 @@
                                 <a href="" title="浏览"><i class="icon unhide"></i>(999)</a>
                                 <a href="" title="评论"><i class="icon comment outline"></i>(999)</a>
                                 <a href="" title="分享"><i class="icon external share"></i>(999)</a>
+                                <% if(user && user._id == article.author._id) {%>
+                                <a href="/articles/delete?id=<%= article._id %>" title="删除"><i class="icon trash"></i></a>
+                                <a href="/articles/edit/<%= article._id %>" title="编辑"><i class="icon write"></i></a>
+                                <% } %>
                             </div>
                         </div>
                     </div>
