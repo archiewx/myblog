@@ -1,18 +1,17 @@
 'use strict';
-let path = require('path');
-let express = require('express');
-let session = require('express-session');
-let MongoStore = require('connect-mongo')(session);
-let flash = require('connect-flash');
-let config = require('config-lite');
-let routes = require('./routes');
-let pkg = require('./package');
-let NavsModel = require('./models/navs');
-// 导入日志模块
-let winston =require('winston');
-let expressWinston = require('express-winston');
-
-let app = express();
+let path = require('path'),
+    express = require('express'),
+    session = require('express-session'),
+    MongoStore = require('connect-mongo')(session),
+    flash = require('connect-flash'),
+    config = require('config-lite'),
+    routes = require('./routes'),
+    pkg = require('./package'),
+    NavsModel = require('./models/navs'),
+    // 导入日志模块
+    winston = require('winston'),
+    expressWinston = require('express-winston'),
+    app = express();
 
 // 设置模板目录
 app.set('views', path.join(__dirname, 'views'));
@@ -44,8 +43,8 @@ app.use(require('express-formidable')({
 // 菜单全局绑定
 NavsModel
     .getNavs()
-    .then(function(navs) {
-       app.locals.navs = navs;
+    .then(function (navs) {
+        app.locals.navs = navs;
     });
 // 设置模板全局变量
 app.locals.blog = {
@@ -53,7 +52,7 @@ app.locals.blog = {
     description: pkg.description
 };
 // 添加模板三个必须的变量
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.locals.user = req.session.user;
     res.locals.success = req.flash('success').toString();
     res.locals.error = req.flash('error').toString();
@@ -94,10 +93,10 @@ app.use(expressWinston.errorLogger({
 
 // 监听端口，启动程序
 const port = process.env.PORT || config.port;
-if(module.parent) {
+if (module.parent) {
     module.exports = app
 } else {
-    app.listen(port, function() {
+    app.listen(port, function () {
         console.log(pkg.name + ' listening on port ' + config.port);
     })
 }

@@ -4,3 +4,5 @@ coverage
 /.idea/workspace.xml
 .idea/vcs.xml
 .idea/dictionaries/
+.DS_store
+public/img/upload/

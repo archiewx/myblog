@@ -20,5 +20,10 @@ module.exports = {
             .addCreateAt()
             .exec();
     },
+    deleteCategory: function(id) {
+        return Category
+            .remove({ _id: id})
+            .exec();
+    }
 
 };
