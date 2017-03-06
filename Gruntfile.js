@@ -5,23 +5,25 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         // 配置uglify
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-                '<%= grunt.template.today("yyyy-mm-dd") %> */'
-            },
-            build: {
-                expand: true,
-                cwd: 'public/js',
-                src: '**/*.js',
-                dest: 'public/dest'
-            }
-        },
+        // uglify: {
+        //     options: {
+        //         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+        //         '<%= grunt.template.today("yyyy-mm-dd") %> */'
+        //     },
+        //     build: {
+        //         expand: true,
+        //         cwd: 'public/js',
+        //         src: '**/*.js',
+        //         dest: 'public/dest'
+        //     }
+        // },
         watch: {
             js: {
-                files: [ 'public/js/**', 'public/css/**' ],
+                files: [ 'public/**' ],
                 // tasks: ['uglify'],
-                options: { livereload: true }
+                options: {
+                    livereload: true
+                }
             },
             ejs: {
                 files: ['views/**'],
@@ -42,6 +44,7 @@ module.exports = function(grunt) {
                    delayTime: 1,
                    env: {
                        PORT: 3000,
+                       NODE_ENV: 'default'
                    },
                    cwd: __dirname
                }
@@ -59,7 +62,7 @@ module.exports = function(grunt) {
     grunt.option('force', true);
 
     // 使用插件
-    // grunt.loadNpmTasks('grunt-contrib-uglify')
+    // grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');

@@ -2,19 +2,8 @@
 <div class="main">
     <div class="wrap">
         <div class="ui grid">
-            <div class="four wide column">
-                <div class="menu-list ui raised segment">
-                    <a href="javascript:;" class="ui colorbba ribbon label">分类</a>
-                    <div class="ui accordion fluid">
-                    <% categories.forEach(function(category) {%>
-                        <div class="list-item">
-                        <a class="title" href="/categories/<%= category._id%>"><i class="custome-icon iconfont icon-<%= category.icon %>"></i><%= category.name %></a>
-                        </div>
-                    <% }) %>
-                    </div>
-                </div>
-            </div>
-            <div class="eleven wide column">
+            <div class="one wide column"></div>
+            <div class="fifteen wide column">
                 <div class="content-list">
                     <% articles.forEach(function(article) { %>
                     <div class="list-item left">
@@ -49,9 +38,6 @@
                         </div>
                     </div>
                     <% }) %>
-                    <div class="list-item right">
-
-                    </div>
                 </div>
             </div>
         </div>

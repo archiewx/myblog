@@ -77,6 +77,14 @@ app.use(function (err, req, res, next) {
     });
     next()
 });
+
+// 测试环境下
+if(process.env.NODE_ENV === 'default') {
+    app.use(require('connect-livereload')({
+        port: 35729
+    }))
+}
+
 // 路由
 routes(app);
 app.use(expressWinston.errorLogger({

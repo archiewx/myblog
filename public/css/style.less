@@ -24,15 +24,19 @@
     .custome-icon { margin-right: 3px; color: @colorbb7; }
 }
 /*articles*/
-.content-list { width: @width100;
-    .list-item { width: @width100; height: 128px; .overfl; }
+.content-list { width: @width100; padding: 8px 0 8px 10px; border-left: 3px solid @colora97;
+
+    .list-item { width: @width100; height: 100px; .rel();
+        &:after { content: ''; width: 20px; height: 20px; background-color: @colora97;
+          border-radius: 20px; .abs(@left: -22px, @top: 17px ); }
+    }
     .item-pic { width: @pic_width; height: @pic_width; background-position: center;
         background-size: contain; border: 1px solid @colorbba; border-radius: @br3;  }
-    .item-left { width: 15%;
-        .item-author { width: 80px; text-overflow: ellipsis; overflow: hidden; word-break: normal; white-space: nowrap;
-            display: block; }
+    .item-left { width: @pic_width;
+        .item-author { width: @pic_width; text-overflow: ellipsis; overflow: hidden; word-break: normal; white-space: nowrap;
+            display: block; text-align: center; }
     }
-    .item-right { width: 80%;
+    .item-right { width: 80%; margin-left: 8px;
 
         a { display: block; width: @width100; }
     }

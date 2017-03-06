@@ -29,6 +29,7 @@
     "winston": "^2.3.0"
   },
   "devDependencies": {
+    "connect-livereload": "^0.6.0",
     "grunt": "^1.0.1",
     "grunt-concurrent": "^2.3.1",
     "grunt-contrib-nodemon": "^0.5.4",

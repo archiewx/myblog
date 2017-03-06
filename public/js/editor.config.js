@@ -22,5 +22,12 @@ editor_config = {
         'img',
         'insertcode',
         'fullscreen'
-    ]
+    ],
+    mapAk: 'xDsiAaEvLGYm0WqNMDtz6D6t',
+    emotions: {
+        "default": {
+            title: '默认',
+            data: '/js/emotions.data'
+        }
+    }
 };
