@@ -29,5 +29,19 @@ editor_config = {
             title: '默认',
             data: '/js/emotions.data'
         }
+    },
+    uploadInit: function() {
+
+        const editor = this,
+            btnId = editor.customUploadBtnId,
+            containerId = editor.customUploadContainerId;
+
+        let uploader = Qiniu.uploader({
+            runtimes: 'html5, html4, flash',
+            browser_button: btnId,
+            
+        });
+
+
     }
 };

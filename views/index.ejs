@@ -21,8 +21,12 @@
                     <div class="my-pic" style="<% if(user){ %> background-image: url(/img/upload/<%= user.avatar %>) <% } %>;"></div>
                     <div class="my-description ui raised segment">
                         <a class="ui colorbba ribbon label">description</a>
-                        <p>我就是我，不一样的烟火!</p>
-                        <p>愿意coding就coding,不愿意coding,我就去种地!</p>
+                        <% if(user) { %>
+                        <p><%= user.bio %></p>
+                        <% } else { %>
+                        <p>分享你所知道知识!</p>
+                        <p>&nbsp;&nbsp; 让别人知道你所知道的!</p>
+                        <% } %>
                     </div>
                 </div>
             </div>

@@ -44,17 +44,16 @@ router.post('/', check.checkLogin, function (req, res, next) {
         avatar,
         user = { name, bio };
 
-    if (req.files) {
-        avatar = req.files.avatar.path.split(path.sep).pop();
-        user['avatar'] = avatar;
-    }
-    //fixme 问题同修改文章
     try {
-        // 删除原来的 用户图片
-        // fixme 修改没有文件删除权限问题
-        fs.unlink(`${ process.cwd() }/public/img/upload/${ req.session.user.avatar }`, (err) => {
-            if (err) throw err;
-        });
+
+        if (req.files) {
+            avatar = req.files.avatar.path.split(path.sep).pop();
+            user['avatar'] = avatar;
+            // 删除原来的 用户图片
+            fs.unlink(`${ process.cwd() }/public/img/upload/${ req.session.user.avatar }`, (err) => {
+                if (err) throw err;
+            });
+        }
 
     } catch (e) {
         // 出现错误 删除上传的图片

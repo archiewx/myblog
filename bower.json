@@ -19,6 +19,7 @@
   "dependencies": {
     "semantic": "semantic-ui#^2.2.7",
     "wangEditor": "^2.1.22",
-    "AdminLTE": "admin-lte#^2.3.11"
+    "AdminLTE": "admin-lte#^2.3.11",
+    "qiniu": "^1.0.18"
   }
 }
