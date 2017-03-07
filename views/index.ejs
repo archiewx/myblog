@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= title %></title>
     <link rel="stylesheet" href="/libs/semantic/dist/semantic.min.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/theme/normal/index.css">
     <script src="/libs/jquery/dist/jquery.min.js"></script>
     <script src="/libs/semantic/dist/semantic.min.js"></script>
 </head>
@@ -24,7 +24,7 @@
                         <% if(user) { %>
                         <p><%= user.bio %></p>
                         <% } else { %>
-                        <p>分享你所知道知识!</p>
+                        <p>分享你所知道的知识!</p>
                         <p>&nbsp;&nbsp; 让别人知道你所知道的!</p>
                         <% } %>
                     </div>
@@ -39,5 +39,12 @@
             </a>
         </div>
     </div>
+    <% if(!user) { %>
+    <div class="bottom-bar">
+        <div class="left">
+            <a href="/signin">登陆</a>|<a href="/signup">注册</a>
+        </div>
+    </div>
+    <% } %>
 </body>
 </html>

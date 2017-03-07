@@ -6,3 +6,5 @@ coverage
 .idea/dictionaries/
 .DS_store
 public/img/upload/
+theme/rain-night/default.css
+theme/rain-night/index.css
