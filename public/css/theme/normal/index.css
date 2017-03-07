@@ -281,7 +281,7 @@ body {
   border-radius: 58px;
   -moz-border-radius: 58px;
   -webkit-border-radius: 58px;
-  background-image: url('../img/pic.jpg');
+  background-image: url('../../../img/pic.jpg');
   background-size: contain;
   position: relative;
   margin: 0 auto;
@@ -313,4 +313,14 @@ body {
   -moz-animation: next 1s ease-out 0.1s infinite normal;
   -webkit-animation: next 1s ease-out 0.1s infinite normal;
   -o-animation: next 1s ease-out 0.1s infinite normal;
+}
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 10px;
+}
+.bottom-bar .left {
+  float: right;
 }
