@@ -1,0 +1,19 @@
+/**定义渐变色 */
+.overfl {
+  overflow: hidden;
+  zoom: 1;
+}
+.cf {
+  text-align: center;
+}
+.clearfix:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+.txtof {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}

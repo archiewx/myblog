@@ -7,7 +7,7 @@ const express = require('express'),
 
 router.get('/',check.checkLogin, function (req, res, next) {
     res.render('admin/index', {
-        title: '幕后黑手 | ' + config.author
+        title: 'zzcl`s blog admin | ' + config.author
     })
 });
 

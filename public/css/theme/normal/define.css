@@ -42,25 +42,6 @@ a {
 a:hover {
   color: #000000;
 }
-/**定义渐变色 */
-.overfl {
-  overflow: hidden;
-  zoom: 1;
-}
-.cf {
-  text-align: center;
-}
-.clearfix:after {
-  content: ' ';
-  display: block;
-  clear: both;
-}
-.txtof {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: normal;
-  white-space: nowrap;
-}
 /**定义数值*/
 /*字体定义*/
 /**网站基色 */
