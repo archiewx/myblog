@@ -1,10 +1,6 @@
 node_modules/
 npm-debug.log
 coverage
-/.idea/workspace.xml
-.idea/vcs.xml
-.idea/dictionaries/
+.idea/
 .DS_store
 public/img/upload/
-theme/rain-night/default.css
-theme/rain-night/index.css

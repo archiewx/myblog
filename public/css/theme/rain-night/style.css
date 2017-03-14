@@ -78,6 +78,7 @@ a:hover {
   filter: brightness(50%);
 }
 .nav {
+  width: 100%;
   color: #fff;
   position: relative;
   margin: 0;
@@ -86,14 +87,14 @@ a:hover {
 .nav .nav-container {
   overflow: hidden;
   zoom: 1;
-  margin-top: 32px;
+  margin: 32px auto;
+  width: 1024px;
 }
 .nav .user-info {
   display: none !important;
 }
 .nav .left {
   float: left;
-  margin-left: 100px;
   color: #fff;
   font-weight: bold;
   font-size: 30px;
@@ -103,7 +104,6 @@ a:hover {
   float: right;
   overflow: hidden;
   zoom: 1;
-  margin-right: 30px;
 }
 .nav .menu-item {
   float: right;
@@ -127,10 +127,63 @@ a:hover {
   width: 100%;
   overflow: hidden;
   zoom: 1;
+  position: relative;
+  z-index: 3;
 }
 .main .wrap {
   width: 1024px;
   margin: 20px auto;
+  color: #bbb;
   background-color: rgba(0, 0, 0, 0.4);
+}
+.main .content-list {
+  padding: 0 8px;
+}
+.main .content-list a {
   color: #fff;
+}
+.main .list-item {
+  margin-bottom: 16px;
+}
+.main .list-item .item-left {
+  display: none;
+}
+.main .list-item .simple-content {
+  display: none;
+}
+.main .list-item .item-bottom {
+  position: relative;
+  margin: 0;
+}
+.main .list-item .time {
+  display: none;
+}
+.main .rain-item-top {
+  margin-bottom: 8px;
+}
+.main .rain-item-top .rain-date {
+  color: #bbb;
+}
+.main .item-right .header {
+  margin-bottom: 6px;
+  color: #b87209;
+}
+.main .item-right .header:hover {
+  color: #f90;
+  text-decoration: underline;
+}
+.main .item-right .min-content {
+  max-height: 60px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+}
+.main .item-bottom .ar-ps {
+  margin-top: 10px;
+}
+.main .item-bottom .ar-usr {
+  color: #f90;
+}
+.main .item-bottom .ar-time {
+  color: #f90;
 }

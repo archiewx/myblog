@@ -8,13 +8,13 @@ mongolass.connect(config.mongodb);
 mongolass.plugin('addCreateAt', {
     afterFind: function(results) {
         results.forEach(function(item) {
-           item.created_at = moment(objectIdToTimestamp(item._id)).format('YYYY-MM-DD HH:mm:ss');
+           item.created_at = moment(objectIdToTimestamp(item._id));
         });
         return results;
     },
     afterFindOne: function(result) {
         if(result) {
-            result.create_at = moment(objectIdToTimestamp(result._id)).format('YYYY-MM-DD HH:mm:ss');
+            result.create_at = moment(objectIdToTimestamp(result._id));
         }
         return result;
     }

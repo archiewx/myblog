@@ -2,36 +2,46 @@
 <div class="main">
     <div class="wrap">
         <div class="ui grid">
-            <div class="one wide column"></div>
             <div class="fifteen wide column">
                 <div class="content-list">
                     <% articles.forEach(function(article) { %>
                     <div class="list-item left">
                         <div class="item-top clearfix">
+                            <div class="rain-item-top">
+                                <div class="rain-date"><%= new Date(article.created_at).toLocaleDateString("zh-CN") %></div>
+                            </div>
                             <div class="item-left">
                                 <a href="/about/<%= article.author._id %>">
                                     <div class="item-pic"
                                          style="background-image: url(/img/upload/<%= article.author.avatar %>)"></div>
-                                    <span class="item-author" title="<%= article.author.name %>"><%= article.author.name %></span>
+                                    <span class="item-author"
+                                          title="<%= article.author.name %>"><%= article.author.name %></span>
                                 </a>
                             </div>
                             <div class="item-right">
                                 <a href="/articles/detail/<%= article._id %>">
                                     <div class="header"><%= article.title %></div>
                                     <div class="simple-content"><%= article.description %></div>
+                                    <div class="min-content"><%- article.content %></div>
                                 </a>
                             </div>
                         </div>
                         <div class="item-bottom">
-                            <div class="time"><%= article.created_at %> <a href="/categories/<%= article.category._id %>">
+                            <div class="time"><%= article.created_at %> <a
+                                        href="/categories/<%= article.category._id %>">
                                     <span class="category"><%= article.category.name %></span>
-                                </a></div>
+                                </a>
+                            </div>
+                            <div class="ar-ps">作者 <span class="ar-usr"><%= article.author.name %></span> 时间:<span
+                                        class="ar-time"> <%= new Date(article.created_at).toLocaleTimeString('zh-CN', {hour12: false}) %> </span>
+                            </div>
                             <div class="fn-tool">
-                                <a href="" title="浏览"><i class="icon unhide"></i>(999)</a>
-                                <a href="" title="评论"><i class="icon comment outline"></i>(999)</a>
-                                <a href="" title="分享"><i class="icon external share"></i>(999)</a>
-                                <% if(user && user._id == article.author._id) {%>
-                                <a href="/articles/delete?id=<%= article._id %>" title="删除"><i class="icon trash"></i></a>
+                                <a href="" title="浏览"><i class="icon unhide"></i></a>
+                                <a href="" title="评论"><i class="icon comment outline"></i></a>
+                                <a href="" title="分享"><i class="icon external share"></i></a>
+                                <% if(user && user._id == article.author._id) { %>
+                                <a href="javascript:;" data-id="<%= article._id %>" title="删除"><i
+                                            class="icon trash delete-article"></i></a>
                                 <a href="/articles/edit/<%= article._id %>" title="编辑"><i class="icon write"></i></a>
                                 <% } %>
                             </div>
@@ -43,5 +53,27 @@
         </div>
     </div>
 </div>
+<script src="/js/layui/layui.js"></script>
+<script>
+   $(function() {
+       $(document).on('click', '.delete-article', function(e) {
+           let $that = $(e.target);
+           layui.use('layer', function() {
+               let layer = layui.layer;
+               layer.confirm('确认删除本篇博文(行文不已,且写且珍惜)?', {
+                   title: '删除提示',
+                   icon: 5,
+                   scrollbar: false,
+                   yes: ()=> {
+                       location.href = `/articles/delete?id=${ $that.data('id') }`;
+                   },
+                   no: ()=> {
+                        layer.close(layer.index);
+                   }
+               })
+           })
+       });
+   });
+</script>
 <% include components/footer.ejs %>
 

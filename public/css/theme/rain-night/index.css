@@ -78,22 +78,23 @@ a:hover {
   filter: brightness(50%);
 }
 .nav {
+  width: 100%;
   color: #fff;
   position: relative;
   margin: 0;
   z-index: 2;
 }
 .nav .nav-container {
+  width: 1024px;
+  margin: 20px auto;
   overflow: hidden;
   zoom: 1;
-  margin-top: 32px;
 }
 .nav .user-info {
   display: none !important;
 }
 .nav .left {
   float: left;
-  margin-left: 100px;
   color: #fff;
   font-weight: bold;
   font-size: 30px;
@@ -103,7 +104,6 @@ a:hover {
   float: right;
   overflow: hidden;
   zoom: 1;
-  margin-right: 30px;
 }
 .nav .menu-item {
   float: right;
@@ -122,6 +122,21 @@ a:hover {
 .nav .menu-item:hover {
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
+}
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+  padding: 8px 10px;
+}
+.bottom-bar .left {
+  float: right;
+  color: #bbb;
+}
+.bottom-bar a {
+  color: #bbb;
 }
 .main {
   display: none;

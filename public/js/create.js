@@ -5,7 +5,7 @@ $(function () {
     // 配置菜单栏菜单
     weditor.config.menus = editor_config.menus;
     // 配置关闭控制台答应
-    weditor.config.printLog = true;
+    weditor.config.printLog = false;
     // 配置粘贴复制
     weditor.config.parseFilter = false;
     // 配置baidu 云地图

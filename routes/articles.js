@@ -124,7 +124,7 @@ router.get('/delete', check.checkLogin, function (req, res, next) {
         .delArticleById(articleId)
         .then(function () {
             req.flash('success', '删除文章成功');
-
+            
             res.redirect('/articles');
         })
         .catch(next);
