@@ -68,11 +68,9 @@ a:hover {
   width: 100%;
   height: 100%;
   background: #1F160F url(../../../img/rain-body.jpeg) no-repeat top center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
   background-size: cover;
   -webkit-filter: brightness(50%);
   filter: brightness(50%);
@@ -186,4 +184,35 @@ a:hover {
 }
 .main .item-bottom .ar-time {
   color: #f90;
+}
+/*signin.ejs*/
+.logo {
+  text-align: center;
+  padding-top: 50px;
+}
+.logo .title {
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 3px;
+  color: #bbb;
+}
+.logo .description {
+  font-size: 8px;
+  margin-top: 10px;
+  color: #ccc;
+}
+.segment {
+  background-color: transparent !important;
+  border: none;
+}
+.segment label {
+  color: #bbb !important;
+}
+.segment input {
+  background: transparent !important;
+  border: 1px solid #bc9458 !important;
+  color: #fff !important;
+}
+.segment input[type='submit'] {
+  background-color: #bc9458 !important;
 }

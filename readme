@@ -60,3 +60,8 @@
 留言
     创建留言：POST /posts/:postId/comment
     删除留言：GET /posts/:postId/comment/:commentId/remove
+
+信息记录:
+    创建记录: GET /works/create
+    提交记录: POST /works/create
+    记录列表: GET /works/
