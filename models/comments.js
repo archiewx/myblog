@@ -1,16 +1,16 @@
-let marked = require('marked')
-let Comment = require('../db/db').Comment
+let marked = require('marked');
+let Comment = require('../db/db').Comment;
 
 // 将 comment的 content 从Markdown 转换成 html
 Comment.plugin('contentToHtml', {
     afterFind: function(comments) {
         return comments
             .map(function(comment) {
-                comment.content = marked(comment.content)
+                comment.content = marked(comment.content);
                 return comment
             })
     }
-})
+});
 
 module.exports = {
     create: function(comment) {
@@ -47,4 +47,4 @@ module.exports = {
             .count({ postId: postId })
             .exec()
     }
-}
+};

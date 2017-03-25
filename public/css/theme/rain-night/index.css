@@ -108,7 +108,7 @@ a:hover {
 .nav .menu-item {
   float: right;
   display: block;
-  border-width: 2px;
+  border: 2px solid transparent;
 }
 .nav .menu-item a {
   color: #fff;
@@ -120,8 +120,8 @@ a:hover {
   margin-right: 4px;
 }
 .nav .menu-item:hover {
-  border-top: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
 }
 .usr-pic {
   position: absolute;

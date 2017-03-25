@@ -22,7 +22,7 @@
                                 <a href="/articles/detail/<%= article._id %>">
                                     <div class="header"><%= article.title %></div>
                                     <div class="simple-content"><%= article.description %></div>
-                                    <div class="min-content"><%- article.content %></div>
+                                    <div class="min-content"><%= article.simpleContent %></div>
                                 </a>
                             </div>
                         </div>
@@ -40,8 +40,8 @@
                                 <a href="" title="评论"><i class="icon comment outline"></i></a>
                                 <a href="" title="分享"><i class="icon external share"></i></a>
                                 <% if(user && user._id == article.author._id) { %>
-                                <a href="javascript:;" data-id="<%= article._id %>" title="删除"><i
-                                            class="icon trash delete-article"></i></a>
+                                <a href="javascript:;" title="删除"><i
+                                            class="icon trash delete-article" data-id="<%= article._id %>"></i></a>
                                 <a href="/articles/edit/<%= article._id %>" title="编辑"><i class="icon write"></i></a>
                                 <% } %>
                             </div>
@@ -55,25 +55,25 @@
 </div>
 <script src="/js/layui/layui.js"></script>
 <script>
-   $(function() {
-       $(document).on('click', '.delete-article', function(e) {
-           let $that = $(e.target);
-           layui.use('layer', function() {
-               let layer = layui.layer;
-               layer.confirm('确认删除本篇博文(行文不已,且写且珍惜)?', {
-                   title: '删除提示',
-                   icon: 5,
-                   scrollbar: false,
-                   yes: ()=> {
-                       location.href = `/articles/delete?id=${ $that.data('id') }`;
-                   },
-                   no: ()=> {
+    $(function () {
+        $(document).on('click', '.delete-article', function (e) {
+            let $that = $(e.target);
+            layui.use('layer', function () {
+                let layer = layui.layer;
+                layer.confirm('确认删除本篇博文(行文不已,且写且珍惜)?', {
+                    title: '删除提示',
+                    icon: 5,
+                    scrollbar: false,
+                    yes: () => {
+                        location.href = `/articles/delete?id=${ $that.data('id') }`;
+                    },
+                    no: () => {
                         layer.close(layer.index);
-                   }
-               })
-           })
-       });
-   });
+                    }
+                })
+            })
+        });
+    });
 </script>
 <% include components/footer.ejs %>
 

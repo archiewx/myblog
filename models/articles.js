@@ -1,49 +1,60 @@
 let Mongolass = require('mongolass');
 let mongolass = require('../db/dbconfig');
+let $ = require('cheerio');
+
 let Article = mongolass.model('Article', {
-    author: { type: Mongolass.Types.ObjectId },
-    title: { type: 'string' },
-    category: { type: Mongolass.Types.ObjectId },
-    content: { type: 'string' },
-    description: { type: 'string' }
+    author: {type: Mongolass.Types.ObjectId},
+    title: {type: 'string'},
+    category: {type: Mongolass.Types.ObjectId},
+    content: {type: 'string'},
+    description: {type: 'string'}
 });
-Article.index({ author: 1, _id: -1 }).exec();
+Article.index({author: 1, _id: -1}).exec();
+Article.plugin('htmlToText', {
+    afterFind: function (results) {
+        results.forEach(function (result) {
+            result.simpleContent = $(result.content).text();
+        });
+        return results;
+    }
+});
 
 module.exports = {
     // 创建一个篇文章
-    create: function(article) {
+    create: function (article) {
         return Article
             .create(article)
             .exec();
     },
     // 通过id获取文章
-    getArticleById: function(articleId) {
+    getArticleById: function (articleId) {
         return Article
-            .findOne({ _id: articleId })
-            .populate({ path: 'author', model: 'User' })
-            .populate({ path: 'category', model: 'Category'})
+            .findOne({_id: articleId})
+            .populate({path: 'author', model: 'User'})
+            .populate({path: 'category', model: 'Category'})
             .addCreateAt()
             .exec();
     },
-    getArticles: function(query) {
-        if(!query) {
+    getArticles: function (query) {
+        if (!query) {
             query = {};
         }
         return Article
             .find(query)
-            .populate({ path: 'author', model: 'User' })
-            .populate({ path: 'category', model: 'Category' })
-            .sort({ _id: -1 })
+            .populate({path: 'author', model: 'User'})
+            .populate({path: 'category', model: 'Category'})
+            .sort({_id: -1})
+            .htmlToText()
             .addCreateAt()
             .exec();
     },
-    updatePostById: function(articleId, data) {
+    updatePostById: function (articleId, data) {
         return Article
-            .update({ _id: articleId }, { $set: data })
+            .update({_id: articleId}, {$set: data})
     },
-    delArticleById: function(articleId) {
+    delArticleById: function (articleId) {
         return Article
-            .remove({ _id: articleId })
+            .remove({_id: articleId})
             .exec();
     }
 };
