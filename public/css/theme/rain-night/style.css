@@ -173,7 +173,12 @@ a:hover {
 .main .item-right .min-content {
   max-height: 60px;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  box-rient: vertical;
   overflow: hidden;
   width: 100%;
 }
@@ -216,4 +221,49 @@ a:hover {
 }
 .segment input[type='submit'] {
   background-color: #bc9458 !important;
+}
+/* article */
+#share_url {
+  text-decoration: underline;
+}
+.javascript.hljs {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.create-articles {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  background-color: #00a157;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.create-articles:hover {
+  color: #ffffff;
+}
+.back-top {
+  display: block;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 110px;
+  right: 50px;
+  background-color: #902b2b;
+  font-size: 30px;
+  text-align: center;
+  line-height: 60px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  color: #fff;
+}
+.back-top:hover {
+  color: #ccc;
 }
