@@ -12,40 +12,49 @@
     <script src="/libs/semantic/dist/semantic.min.js"></script>
 </head>
 <body>
-    <div class="bg-cover"></div>
-    <% include components/nav.ejs %>
-    <div class="info" style="color: #fff; position: absolute; font-size: 20px; width: 360px; height: 50px; line-height: 50px; text-align: center; top:0; left: 0; bottom: 0; right: 0; margin: auto auto; border-radius: 30px; background-color: rgba(0, 0, 0, .8);">v2.0待完成，一切还在继续... <div class="usr-pic" style="background-image: url(/img/upload/<% if(user) { %><%= user.avatar %> <%}%>);"></div></div>
-    <div class="main">
-        <div class="wrap">
-            <div class="container">
-                <div class="my-some-info">
-                    <div class="my-pic" style="<% if(user){ %> background-image: url(/img/upload/<%= user.avatar %>) <% } %>;"></div>
-                    <div class="my-description ui raised segment">
-                        <a class="ui colorbba ribbon label">description</a>
-                        <% if(user) { %>
-                        <p><%= user.bio %></p>
-                        <% } else { %>
-                        <p>分享你所知道的知识!</p>
-                        <p>&nbsp;&nbsp; 让别人知道你所知道的!</p>
-                        <% } %>
-                    </div>
+<div class="bg-cover"></div>
+<% include components/nav.ejs %>
+<div class="info"
+     style="color: #fff; position: absolute; font-size: 20px; width: 360px; height: 50px; line-height: 50px; text-align: center; top:0; left: 0; bottom: 0; right: 0; margin: auto auto; border-radius: 30px; background-color: rgba(0, 0, 0, .8);">
+    v2.0待完成，一切还在继续...
+    <div class="usr-pic" style="background-image: url(/img/upload/user_pic/<% if(user) { %> <%= user.avatar %> <% } %>);"></div>
+</div>
+<div class="main">
+    <div class="wrap">
+        <div class="container">
+            <div class="my-some-info">
+                <div class="my-pic"
+                     style="<% if(user){ %> background-image: url(/img/upload/<%= user.avatar %>) <% } %>;"></div>
+                <div class="my-description ui raised segment">
+                    <a class="ui colorbba ribbon label">description</a>
+                    <% if(user) { %>
+                    <p><%= user.bio %></p>
+                    <% } else { %>
+                    <p>分享你所知道的知识!</p>
+                    <p>&nbsp;&nbsp; 让别人知道你所知道的!</p>
+                    <% } %>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <div class="footer-wrap">
-            <a style="display: block;" class="" href="/articles">
-                <div class="next" title="点击查看近期动态"><i class="angle double down icon "></i></div>
-            </a>
-        </div>
+</div>
+<div class="footer">
+    <div class="footer-wrap">
+        <a style="display: block;" class="" href="/articles">
+            <div class="next" title="点击查看近期动态"><i class="angle double down icon "></i></div>
+        </a>
     </div>
+</div>
+<div class="bottom-bar">
     <% if(!user) { %>
-    <div class="bottom-bar">
-        <div class="left">
-            <a href="/signin">登陆</a>|<a href="/signup">注册</a>
-        </div>
+    <div class="left">
+        <a href="/signin">登陆</a>|<a href="/signup">注册</a>
+    </div>
+    <% } else { %>
+    <div class="left-tool">
+        <a href="/articles/create" title="主人,该写一篇文章了。">+</a>
     </div>
     <% } %>
+</div>
 </body>
 </html>

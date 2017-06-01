@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         // },
         watch: {
             js: {
-                files: [ 'public/**' ],
+                files: [ 'public/js/**' ],
                 // tasks: ['uglify'],
                 options: {
                     livereload: true

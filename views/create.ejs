@@ -13,7 +13,7 @@
                         <label>描述</label>
                         <input type="text" name="description">
                     </div>
-                    <div class="field required">
+                    <div class="field required" style="background: transparent;">
                         <label>分类</label>
                         <select name="category" class="ui fluid search selection dropdown">
                             <option value="">选择分类(不存在创建否则留空)</option>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="field required">
                         <label>内容</label>
-                        <textarea name="content" style="height: 500px" id="article_content"></textarea>
+                        <div name="content" style="height: 500px" id="article_content"></div>
                     </div>
                     <input type="submit" class="ui button green fluid" value="发布文章">
                 </form>
@@ -37,9 +37,8 @@
         </div>
     </div>
 </div>
-<script src="/libs/plupload/js/plupload.full.min.js"></script>
-<script src="/libs/plupload/js/i18n/zh_CN.js"></script>
-<script src="/libs/qiniu/dist/qiniu.min.js"></script>
+<script src="/js/highlight/highlight.pack.js"></script>
+<script src="/quill/dist/quill.min.js"></script>
 <script src="/js/editor.config.js"></script>
 <script src="/js/create.js"></script>
 <% include components/footer.ejs %>
